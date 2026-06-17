@@ -39,11 +39,11 @@
     box-sizing:border-box;
 }
 
-html{
+html {
     scroll-behavior:smooth;
 }
 
-body{
+body {
     font-family:"Creato";
     background:
         radial-gradient(
@@ -54,7 +54,7 @@ body{
     color:#fff;
 }
 
-header{
+header {
 
     position:sticky;
 
@@ -78,7 +78,7 @@ header{
 
 }
 
-nav{
+nav {
 
     display:flex;
 
@@ -86,7 +86,7 @@ nav{
 
 }
 
-nav a{
+nav a {
 
     color:white;
 
@@ -98,29 +98,83 @@ nav a{
 
 }
 
-nav a:hover{
+nav a:hover {
 
     color:var(--light-blue);
 
 }
 
-.hero{
+.hero {
 
-    min-height:100vh;
+    position: relative;
 
-    display:flex;
+    min-height: 100vh;
 
-    flex-direction:column;
+    overflow: hidden;
 
-    justify-content:center;
+    display: flex;
 
-    align-items:center;
+    justify-content: center;
 
-    text-align:center;
+    align-items: center;
+
+    text-align: center;
+
+    background: #25234C;
 
 }
 
-.hero h1{
+.hero-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transition: opacity 2s ease;
+
+}
+
+.hero-bg-1 {
+
+    opacity: 0;
+
+}
+
+.hero-bg-2 {
+
+    opacity: 0;
+
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    z-index: 2;
+
+}
+
+.hero h1 {
 
     font-family:"Clements";
 
@@ -130,7 +184,7 @@ nav a:hover{
 
 }
 
-.hero p{
+.hero p {
 
     font-family:"FiraLight";
 
@@ -140,17 +194,17 @@ nav a:hover{
 
 }
 
-section{
+section {
 
     min-height:100vh;
 
     padding:120px;
 
-    scroll-margin-top:100px;
+    scroll-margin-top:80px;
 
 }
 
-h2{
+h2 {
 
     font-family:"Clements";
 
