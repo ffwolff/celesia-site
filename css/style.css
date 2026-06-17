@@ -1,0 +1,161 @@
+/* ===== FONTES ===== */
+
+@font-face {
+    font-family: "Clements";
+    src: url("../assets/fonts/Clements Morgle Serif.otf");
+}
+
+@font-face {
+    font-family: "FiraLight";
+    src: url("../assets/fonts/FiraSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "Creato";
+    src: url("../assets/fonts/CreatoDisplay-Regular.otf");
+}
+
+/* ===== CORES ===== */
+
+:root {
+
+    --dark-blue: #25234C;
+    --blue: #5483B6;
+    --light-blue: #70ABE0;
+
+    --pink: #EA659B;
+    --purple-pink: #C516C4;
+
+    --gray: #3D3D3D;
+
+    --white: #FFFFFF;
+    --black: #000000;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Creato";
+    background:
+        radial-gradient(
+            circle at top,
+            #25234C,
+            #000000
+        );
+    color:#fff;
+}
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 80px;
+
+    background:rgba(0,0,0,0.85);
+
+    backdrop-filter:blur(10px);
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:40px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-family:"Creato";
+
+    transition:0.3s;
+
+}
+
+nav a:hover{
+
+    color:var(--light-blue);
+
+}
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-family:"Clements";
+
+    font-size:7rem;
+
+    color:white;
+
+}
+
+.hero p{
+
+    font-family:"FiraLight";
+
+    font-size:1.4rem;
+
+    color:var(--light-blue);
+
+}
+
+section{
+
+    min-height:100vh;
+
+    padding:120px;
+
+    scroll-margin-top:100px;
+
+}
+
+h2{
+
+    font-family:"Clements";
+
+    font-size:4rem;
+
+    margin-bottom:40px;
+
+}
