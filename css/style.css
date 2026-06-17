@@ -104,6 +104,28 @@ nav a:hover {
 
 }
 
+.section-divider {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px 0;
+
+}
+
+.section-divider img {
+
+    max-height: 80px;
+
+    width: auto;
+
+    display: block;
+
+}
+
 .hero {
 
     position: relative;

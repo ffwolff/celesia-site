@@ -1,5 +1,4 @@
 const slides = [
-    null,
     "assets/images/celesia_ataque_amplo.png",
     "assets/images/celesia_colosso_terrano.png",
     "assets/images/celesia_visao_das_ondas.png",
