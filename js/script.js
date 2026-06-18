@@ -73,3 +73,47 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 
 });
+
+const menuButton =
+    document.querySelector('.menu-toggle');
+
+const nav =
+    document.querySelector('nav');
+
+menuButton.addEventListener('click', () => {
+
+    nav.classList.toggle('active');
+
+});
+
+document.querySelectorAll('.nav-link')
+.forEach(link => {
+
+    link.addEventListener('click', () => {
+
+        nav.classList.remove('active');
+
+    });
+
+});
+
+function updateImage() {
+    const img = document.getElementById("banner-logo");
+
+    if (window.innerWidth <= 768) {
+        img.src = "assets/images/celesia_cristal.png";
+    } else {
+        img.src = "assets/images/LOGO_Celesia_site-02.png";
+    }
+}
+
+updateImage();
+window.addEventListener("resize", updateImage);
+
+const domain =
+    window.location.hostname || 'localhost';
+
+document
+    .getElementById('twitch-player')
+    .src =
+    `https://player.twitch.tv/?channel=celesiacg&parent=${domain}`;
