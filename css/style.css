@@ -134,7 +134,7 @@ nav a:hover {
 
     align-items: center;
 
-    padding: 20px 0;
+    padding: 60px 0;
 
 }
 
@@ -246,9 +246,7 @@ nav a:hover {
 
 section {
 
-    min-height:100vh;
-
-    padding:120px;
+    padding: 120px;
 
     scroll-margin-top:80px;
 
@@ -489,6 +487,80 @@ p {
 
 }
 
+footer {
+
+    padding: 120px;    
+
+}
+
+footer p {
+
+    font-size: 16px;
+
+    font-family:"Creato";
+
+}
+
+footer a {
+
+    color:white;
+
+    font-size: 16px;
+
+    text-decoration:none;
+
+    font-family:"Creato";
+
+    transition:0.3s;
+
+}
+
+footer a:hover {
+
+    color:var(--light-blue);
+
+}
+
+.footer-logo {
+    
+    max-width: 250px;
+
+}
+
+.footer-grid {
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    border-top: 1px solid rgb(112, 172, 224);
+
+    padding-top: 80px;
+
+}
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.footer-row {
+
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 40px;
+
+}
+
 
 /* MOBILE */
     @media (max-width: 768px) {
@@ -509,6 +581,7 @@ p {
         section {
 
             padding: 80px 24px;
+
 
         }
 
@@ -617,4 +690,58 @@ p {
 
     }
 
+    footer {
+
+    padding: 48px 24px;
+
     }
+
+    .footer-grid {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 40px;
+
+        text-align: center;
+
+    }
+
+    .footer-row {
+
+        flex-direction: column;
+
+        gap: 32px;
+
+        width: 100%;
+
+    }
+
+    .footer-column {
+
+        align-items: center;
+
+        gap: 16px;
+
+    }
+
+    .footer-logo {
+
+        max-width: 180px;
+
+    }
+
+    footer p {
+
+        font-size: 14px;
+
+    }
+
+    footer a {
+
+        font-size: 14px;
+
+    }
+
+}
