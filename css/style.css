@@ -244,6 +244,67 @@ nav a:hover {
 
 }
 
+.jogo-content {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 80px;
+
+}
+
+.jogo-texto {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: 24px;
+
+}
+
+.jogo-imagens {
+
+    flex: 0 0 420px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.jogo-img {
+
+    width: 280px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.jogo-img:hover {
+
+    transform: scale(1.03);
+
+}
+
+.jogo-img:nth-child(odd) {
+            align-self: flex-end;
+        }
+
+        .jogo-img:nth-child(even) {
+            align-self: flex-start;
+        }
+
 section {
 
     padding: 120px;
@@ -489,15 +550,17 @@ p {
 
 footer {
 
-    padding: 120px;    
+    padding: 0px 60px 120px 120px;    
 
 }
 
 footer p {
 
-    font-size: 16px;
+    font-size: 12px;
 
     font-family:"Creato";
+
+    text-align: center;
 
 }
 
@@ -656,6 +719,18 @@ footer a:hover {
 
         }
 
+        .jogo-content {
+
+            flex-direction: column;
+
+            gap: 40px;
+
+        }
+
+        .jogo-imagens {
+            display: none;
+        }
+
         .social-grid {
 
         grid-template-columns: 1fr;
@@ -692,7 +767,7 @@ footer a:hover {
 
     footer {
 
-    padding: 48px 24px;
+    padding: 40px 24px;
 
     }
 
@@ -734,7 +809,7 @@ footer a:hover {
 
     footer p {
 
-        font-size: 14px;
+        font-size: 10px;
 
     }
 
