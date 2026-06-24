@@ -280,6 +280,8 @@ nav a:hover {
 
 .jogo-img {
 
+    position: relative;
+
     width: 280px;
 
     border-radius: 16px;
@@ -289,11 +291,15 @@ nav a:hover {
 
     transition:
         transform 0.3s ease;
+
+        z-index: 1;
 }
 
 .jogo-img:hover {
 
     transform: scale(1.03);
+
+    z-index: 10;
 
 }
 
@@ -338,6 +344,71 @@ p {
     flex-direction: column;
     gap: 8px;
 }
+
+.lore-content {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 64px;
+
+    align-items: center;
+
+    margin-bottom: 120px;
+
+}
+
+.lore-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+.lore-image {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.lore-image img {
+
+    width: 400px;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+.lore-image img:hover {
+
+    transform: scale(1.03);
+
+}
+
+.lore-content:nth-of-type(even) {
+
+    transform: translateY(40px);
+
+}
+
 .social-grid {
 
     display: flex;
@@ -548,6 +619,50 @@ p {
 
 }
 
+#quem-somos {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 24px;
+
+}
+
+.quem-somos-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    max-height: 400px;
+
+    overflow: hidden;
+
+}
+
+.quem-somos-img {
+
+    margin-top : 100px;
+
+    width: 100%;
+
+}
+
+.quem-somos-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
 footer {
 
     padding: 0px 60px 120px 120px;    
@@ -559,8 +674,6 @@ footer p {
     font-size: 12px;
 
     font-family:"Creato";
-
-    text-align: center;
 
 }
 
@@ -622,6 +735,10 @@ footer a:hover {
 
     gap: 40px;
 
+}
+
+.footer-mark {
+    padding-top: 40px;
 }
 
 
@@ -741,6 +858,34 @@ footer a:hover {
 
     }
 
+    .lore-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        margin-bottom: 80px;
+
+    }
+
+    .lore-content:nth-of-type(even) {
+
+        transform: none;
+
+    }
+
+    .lore-image {
+
+        order: -1;
+
+    }
+
+    .lore-image img {
+
+        width: 100%;
+
+    }
+
     .social-card {
 
         padding: 20px;
@@ -766,8 +911,8 @@ footer a:hover {
     }
 
     footer {
-
-    padding: 40px 24px;
+        
+        padding: 40px 24px;
 
     }
 
@@ -810,6 +955,8 @@ footer a:hover {
     footer p {
 
         font-size: 10px;
+
+        text-align: center;
 
     }
 
