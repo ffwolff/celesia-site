@@ -11,18 +11,13 @@ const slides = [
     "assets/images/celesia_mistura_instavel.png",
     "assets/images/celesia_reuniao_de_conselho.png",
     "assets/images/celesia_sede_de_sangue.png",
-    "assets/images/celesia_tiro_certeiro.png",
     "assets/images/celesia_furia_flamejante.png",
-    "assets/images/celesia_punhos_flamejantes.png",
-    "assets/images/celesia_compressao_da_mente.png",
     "assets/images/celesia_sopro_de_zefiro.png",
     "assets/images/celesia_martir_terreno.png",
     "assets/images/celesia_chuva_de_flechas.png",
     "assets/images/celesia_gorn.png",
     "assets/images/celesia_agulha_petrea.png",
-    "assets/images/celesia_final.png.png"
-
-    
+    "assets/images/celesia_final.png"    
 ];
 
 const bg1 = document.querySelector(".hero-bg-1");
