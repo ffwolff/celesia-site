@@ -2,58 +2,67 @@ const slides = [
     "assets/images/celesia_ataque_amplo.png",
     "assets/images/celesia_colosso_terrano.png",
     "assets/images/celesia_visao_das_ondas.png",
-    "assets/images/celesia_harpias_das_nuvens.png"
+    "assets/images/celesia_harpias_das_nuvens.png",
+    "assets/images/celesia_chicote_aquatico.png",
+    "assets/images/celesia_drakar_o_lutador.png",
+    "assets/images/celesia_esconder_nas_sombras.jpg",
+    "assets/images/celesia_investida_devastadora.png",
+    "assets/images/celesia_ordem.png",
+    "assets/images/celesia_mistura_instavel.png",
+    "assets/images/celesia_reuniao_de_conselho.png",
+    "assets/images/celesia_sede_de_sangue.png"
 ];
 
 const bg1 = document.querySelector(".hero-bg-1");
 const bg2 = document.querySelector(".hero-bg-2");
 
+let deck = [];
 let current = 0;
+let lastSlide = null;
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function resetDeck() {
+    deck = shuffle([...slides]);
+    current = 0;
+
+    // evita repetição imediata entre ciclos
+    if (deck[0] === lastSlide && deck.length > 1) {
+        [deck[0], deck[1]] = [deck[1], deck[0]];
+    }
+}
+
+resetDeck();
+
 let activeLayer = 1;
 
 function changeSlide() {
+    const slide = deck[current];
 
-    const slide = slides[current];
+    const targetLayer = activeLayer === 1 ? bg2 : bg1;
+    const oldLayer = activeLayer === 1 ? bg1 : bg2;
 
-    if (slide === null) {
+    targetLayer.style.backgroundImage = `url("${slide}")`;
+    targetLayer.style.opacity = 1;
+    oldLayer.style.opacity = 0;
 
-        // Fade para o fundo roxo
-        bg1.style.opacity = 0;
-        bg2.style.opacity = 0;
+    activeLayer = activeLayer === 1 ? 2 : 1;
 
-    } else {
-
-        const targetLayer =
-            activeLayer === 1
-                ? bg2
-                : bg1;
-
-        const oldLayer =
-            activeLayer === 1
-                ? bg1
-                : bg2;
-
-        targetLayer.style.backgroundImage =
-            `url("${slide}")`;
-
-        targetLayer.style.opacity = 1;
-        oldLayer.style.opacity = 0;
-
-        activeLayer =
-            activeLayer === 1
-                ? 2
-                : 1;
-    }
-
+    lastSlide = slide;
     current++;
 
-    if (current >= slides.length) {
-        current = 0;
+    if (current >= deck.length) {
+        resetDeck();
     }
 }
 
 changeSlide();
-
 setInterval(changeSlide, 3000);
 
 document.querySelectorAll('.nav-link').forEach(link => {
