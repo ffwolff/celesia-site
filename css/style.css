@@ -701,6 +701,72 @@ p {
 
     align-items: flex-start;
 
+    gap: 32px;
+
+}
+
+.quem-somos-block {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 64px;
+
+    align-items: center;
+
+    margin-bottom: 100px;
+
+}
+
+.quem-somos-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.quem-somos-img {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.quem-somos-img img {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.quem-somos-img img:hover {
+
+    transform: scale(1.02);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45);
+
 }
 
 footer {
@@ -916,6 +982,30 @@ footer a:hover {
     .lore-image img {
 
         width: 100%;
+
+    }
+
+    .quem-somos-block {
+
+    grid-template-columns: 1fr;
+
+    gap: 32px;
+
+    margin-bottom: 64px;
+
+}
+
+    .quem-somos-block.reverse {
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+    .quem-somos-imag img {
+
+        max-width: 320px;
 
     }
 
