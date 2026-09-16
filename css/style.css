@@ -375,6 +375,10 @@ p {
 
 }
 
+.body-link {
+    color: var(--blue);
+}
+
 .text-container {
     display: flex;
     flex-direction: column;
