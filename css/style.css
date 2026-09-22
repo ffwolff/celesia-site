@@ -773,6 +773,64 @@ p {
 
 }
 
+.contato-redes {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 48px;
+
+    margin-top: 60px;
+
+    max-width: 700px;
+
+}
+
+.contato-redes a {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-family: "Creato";
+
+    font-size: 1.2rem;
+
+    transition: 0.3s ease;
+
+}
+
+.contato-redes img {
+
+    width: 32px;
+
+    height: 32px;
+
+    object-fit: contain;
+
+}
+
+.contato-redes a:hover {
+
+    color: var(--light-blue);
+
+    transform: translateY(-2px);
+
+}
+
 footer {
 
     padding: 0px 60px 120px 120px;    
