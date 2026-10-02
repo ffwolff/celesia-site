@@ -17,6 +17,7 @@ const slides = [
     "assets/images/celesia_chuva_de_flechas.png",
     "assets/images/celesia_gorn.png",
     "assets/images/celesia_agulha_petrea.png",
+    "assets/images/celesia_arma_escondida.png",
     "assets/images/celesia_final.png"    
 ];
 
