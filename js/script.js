@@ -14,7 +14,7 @@ const slides = [
     "assets/images/celesia-compressao-da-mente.png",
     "assets/images/celesia-consonancia-dos-ventos.png",
     "assets/images/celesia-desforra-fluida.png",
-    "assets/images/celesia-despojar.png",
+    "assets/images/celesia-despojar-sem-borda.png",
     "assets/images/celesia-disparo-arcano.jpg",
     "assets/images/celesia-drakar-o-lutador.png",
     "assets/images/celesia-elara.png",
