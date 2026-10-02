@@ -383,6 +383,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex: 1;
 }
 
 
@@ -503,6 +504,29 @@ p {
 .social-card-small {
     width: 100%;
     max-width: 340px;
+}
+
+.social-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+.social-image-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 24px;
+}
+
+.social-image-container img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .social-card-small .social-image-container {
@@ -774,62 +798,35 @@ p {
 
 }
 
-.contato-redes {
+.contato-redes { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 48px; 
+    max-width: 700px; 
+} 
 
-    display: flex;
+.contato-redes a { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 12px; 
+    color: var(--white); 
+    text-decoration: none; 
+    font-family: "Creato"; 
+    font-size: 1.2rem; 
+    transition: 0.3s ease; 
+} 
 
-    flex-direction: row;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 48px;
-
-    margin-top: 60px;
-
-    max-width: 700px;
-
-}
-
-.contato-redes a {
-
-    display: flex;
-
-    flex-direction: row;
-
-    align-items: center;
-
-    gap: 12px;
-
-    color: var(--white);
-
-    text-decoration: none;
-
-    font-family: "Creato";
-
-    font-size: 1.2rem;
-
-    transition: 0.3s ease;
-
-}
-
-.contato-redes img {
-
-    width: 32px;
-
-    height: 32px;
-
-    object-fit: contain;
-
-}
-
-.contato-redes a:hover {
-
-    color: var(--light-blue);
-
-    transform: translateY(-2px);
-
+.contato-redes img { 
+    width: 32px; 
+    height: 32px; 
+    object-fit: contain; 
+} 
+.contato-redes a:hover { 
+    color: var(--light-blue); 
+    transform: translateY(-2px); 
 }
 
 footer {
@@ -986,6 +983,35 @@ footer a:hover {
 
     }
 
+    .social-content-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .text-container {
+        width: 100%;
+    }
+
+    .social-image-container {
+        justify-content: center;
+    }
+
+    .contato-redes {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 60px;
+        max-width: 700px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1121,11 +1147,7 @@ footer a:hover {
 
     }
 
-    .social-image-container {
-
-        height: 220px;
-
-    }
+    
 
     .social-card h3 {
 
@@ -1137,6 +1159,23 @@ footer a:hover {
 
         font-size: 0.95rem;
 
+    }
+
+    .contato-redes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: center;
+        gap: 24px 24px;
+        margin-top: 35px;
+    }
+
+    .contato-redes a {
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .contato-redes i {
+        font-size: 24px;
     }
 
     footer {

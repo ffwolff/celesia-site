@@ -39,7 +39,7 @@ const slides = [
     "assets/images/celesia-ordem.png",
     "assets/images/celesia-pastora.png",
     "assets/images/celesia-punhos-incandescentes.png",
-    "assets/images/celesia-reuniao-de-conselho.png",
+    "assets/images/celesia-reuniao-de-conselho.jpg",
     "assets/images/celesia-rugido.png",
     "assets/images/celesia-salamandra.png",
     "assets/images/celesia-sede-de-sangue.png",
