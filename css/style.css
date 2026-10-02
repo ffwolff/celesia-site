@@ -1,5 +1,3 @@
-/* ===== FONTES ===== */
-
 @font-face {
     font-family: "Clements";
     src: url("../assets/fonts/Clements Morgle Serif.otf");
@@ -14,8 +12,6 @@
     font-family: "Creato";
     src: url("../assets/fonts/CreatoDisplay-Regular.otf");
 }
-
-/* ===== CORES ===== */
 
 :root {
 
@@ -234,7 +230,6 @@ nav a:hover {
     z-index: 2;
     pointer-events: none;
 
-    /* FADE REAL DA IMAGEM */
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,0.15) 0%,
@@ -243,7 +238,6 @@ nav a:hover {
         rgba(0,0,0,0.95) 100%
     );
 
-    /* ISSO AQUI É O QUE RESOLVE DE VERDADE */
     -webkit-mask-image: linear-gradient(
         to bottom,
         rgba(0,0,0,1) 60%,
