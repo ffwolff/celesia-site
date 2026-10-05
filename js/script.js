@@ -72,7 +72,6 @@ function resetDeck() {
     deck = shuffle([...slides]);
     current = 0;
 
-    // evita repetição imediata entre ciclos
     if (deck[0] === lastSlide && deck.length > 1) {
         [deck[0], deck[1]] = [deck[1], deck[0]];
     }
