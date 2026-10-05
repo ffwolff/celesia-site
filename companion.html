@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>CELESIA Companion</title>
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#25234C">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/companion.css">
+    <link rel="stylesheet" href="css/components.css">
+
+</head>
+
+<body>
+
+    <!-- ======================================================
+         APP
+    ======================================================= -->
+
+    <main id="app" class="app">
+
+        <!-- ==============================================
+             TOOLBAR
+        =============================================== -->
+
+        <header class="toolbar">
+
+            <div class="toolbar-left">
+
+                <button
+                    id="remove-player"
+                    class="toolbar-button"
+                    aria-label="Remover jogador">
+
+                    −
+
+                </button>
+
+                <button
+                    id="add-player"
+                    class="toolbar-button"
+                    aria-label="Adicionar jogador">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <div class="toolbar-center">
+
+                <img
+                    src="assets/celesia_logo_001.png"
+                    class="toolbar-logo"
+                    alt="CELESIA Companion">
+
+            </div>
+
+            <div class="toolbar-right">
+
+                <button
+                    id="next-initiative"
+                    class="toolbar-button"
+                    aria-label="Passar iniciativa">
+
+                    ⟳
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- ==============================================
+             TABULEIRO
+        =============================================== -->
+
+        <section
+            id="board"
+            class="board">
+
+            <!-- Os jogadores serão criados pelo JavaScript -->
+
+        </section>
+
+    </main>
+
+    <!-- ======================================================
+         SCRIPTS
+    ======================================================= -->
+
+    <script src="js/colors.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

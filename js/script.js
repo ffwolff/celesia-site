@@ -105,21 +105,23 @@ changeSlide();
 setInterval(changeSlide, 3000);
 
 document.querySelectorAll('.nav-link').forEach(link => {
-
     link.addEventListener('click', function (event) {
+        const targetId = this.getAttribute('href');
+
+        if (!targetId || !targetId.startsWith('#')) {
+            return;
+        }
 
         event.preventDefault();
 
-        const targetId = this.getAttribute('href');
-
         const targetSection = document.querySelector(targetId);
 
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
-
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
-
 });
 
 const menuButton =

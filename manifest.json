@@ -1,0 +1,10 @@
+{
+  "name": "CELESIA Companion",
+  "short_name": "CELESIA",
+  "description": "Companion digital para partidas de CELESIA Card Game.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#25234C",
+  "orientation": "landscape"
+}

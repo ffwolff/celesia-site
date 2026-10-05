@@ -1,0 +1,195 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    width:100%;
+    height:100%;
+
+    font-size:16px;
+
+    -webkit-text-size-adjust:100%;
+
+    touch-action:manipulation;
+
+}
+
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:
+        "Segoe UI",
+        Inter,
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+/* ==========================================================
+   APP
+========================================================== */
+
+.app{
+
+    width:100vw;
+    height:100vh;
+
+    padding:12px;
+
+    background:var(--background);
+
+}
+
+/* ==========================================================
+   BOARD
+========================================================== */
+
+.board{
+
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    gap:2px;
+
+    background:var(--divider);
+
+    border:2px solid var(--divider);
+
+    border-radius:var(--radius-large);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   IMAGENS
+========================================================== */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+button{
+
+    font:inherit;
+
+    border:none;
+
+    background:none;
+
+    color:inherit;
+
+    cursor:pointer;
+
+    outline:none;
+
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+input,
+select{
+
+    font:inherit;
+
+    outline:none;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:0;
+    height:0;
+
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+
+.fade{
+
+    animation:fade .25s ease;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media (max-width:768px){
+
+    .app{
+
+        padding:6px;
+
+    }
+
+    .board{
+
+        border-radius:18px;
+
+    }
+
+}

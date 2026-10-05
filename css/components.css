@@ -1,0 +1,460 @@
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.toolbar {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+    border-radius: 20px;
+
+    background: var(--toolbar-background);
+    backdrop-filter: blur(18px);
+
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.toolbar-left,
+.toolbar-center,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar-logo {
+    height: 44px;
+    width: auto;
+    pointer-events: none;
+}
+
+.toolbar-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 26px;
+
+    transition: var(--transition);
+}
+
+#remove-player {
+    background: var(--accent);
+}
+
+#add-player {
+    background: var(--secondary);
+}
+
+#next-initiative {
+    background: var(--toolbar-button-background);
+}
+
+.toolbar-button:hover {
+    filter: brightness(1.15);
+    transform: scale(1.08);
+}
+
+.toolbar-button:active {
+    transform: scale(.94);
+}
+
+.toolbar-button[hidden] {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   BOARD
+========================================================== */
+
+.board {
+    width: 100%;
+    height: calc(100% - 84px);
+    margin-top: 84px;
+
+    display: grid;
+    gap: 2px;
+
+    overflow: hidden;
+    min-height: 0;
+}
+
+
+/* ==========================================================
+   PLAYER
+========================================================== */
+
+.player {
+    position: relative;
+    overflow: hidden;
+
+    min-width: 0;
+    min-height: 0;
+
+    background: var(--primary);
+}
+
+
+/* ==========================================================
+   ESTRUTURA DOS QUADRANTES
+========================================================== */
+
+.player-content {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+
+/* ==========================================================
+   QUADRANTES
+========================================================== */
+
+.counter {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px;
+
+    min-width: 0;
+    min-height: 0;
+}
+
+.counter-life {
+    border-right: var(--player-border);
+    border-bottom: var(--player-border);
+}
+
+.counter-power {
+    border-right: var(--player-border);
+}
+
+.counter-channeling {
+    border-top: var(--player-border);
+}
+
+
+/* ==========================================================
+   CONTEÚDO INTERNO
+========================================================== */
+
+.counter-inner {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* ==========================================================
+   VALORES
+========================================================== */
+
+.counter-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+}
+
+.counter-number {
+    min-width: 70px;
+
+    text-align: center;
+
+    font-size: var(--counter-number);
+    font-weight: 300;
+    line-height: 1;
+}
+
+
+/* ==========================================================
+   BOTÕES DOS CONTADORES
+========================================================== */
+
+.counter-button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(255,255,255,.45);
+    font-size: 30px;
+
+    transition: var(--transition-fast);
+}
+
+.counter-button:hover {
+    color: white;
+    transform: scale(1.15);
+}
+
+.counter-button:active {
+    transform: scale(.92);
+}
+
+
+/* ==========================================================
+   ÍCONES
+========================================================== */
+
+.counter-icon {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* ==========================================================
+   INICIATIVA
+========================================================== */
+
+.initiative {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: var(--transition);
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.initiative.active {
+    opacity: 1;
+}
+
+.initiative img {
+    width: 100%;
+    height: 100%;
+}
+
+.initiative-symbol {
+    color: var(--initiative-color);
+    font-size: 28px;
+}
+
+
+/* ==========================================================
+   DESKTOP
+========================================================== */
+
+.board.players-1 {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+}
+
+.board.players-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+}
+
+.board.players-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+}
+
+.board.players-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.board.players-5,
+.board.players-6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+
+/* ==========================================================
+   TABLET E MOBILE
+========================================================== */
+
+@media (max-width: 900px) {
+
+    /* ------------------------------------------
+       1 JOGADOR
+    ------------------------------------------ */
+
+    .board.players-1 {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr);
+    }
+
+
+    /* ------------------------------------------
+       2 JOGADORES
+       Cima e baixo.
+    ------------------------------------------ */
+
+    .board.players-2 {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* ------------------------------------------
+        3 JOGADORES
+        Três painéis iguais, empilhados verticalmente.
+    ------------------------------------------ */
+
+    .board.players-3 {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+    }
+
+    .board.players-3 .player {
+        grid-column: 1;
+    }
+
+
+    /* ------------------------------------------
+       4 JOGADORES
+       Esquerda, direita, esquerda, direita.
+
+       Grade 2x2.
+    ------------------------------------------ */
+
+    .board.players-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* ------------------------------------------
+       5 JOGADORES
+       Esquerda, direita, esquerda, direita,
+       baixo e uma célula vazia.
+
+       Grade 2x3.
+    ------------------------------------------ */
+
+    .board.players-5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+    }
+
+
+    /* ------------------------------------------
+       6 JOGADORES
+       Esquerda, direita, esquerda, direita,
+       esquerda, direita.
+
+       Grade 2x3.
+    ------------------------------------------ */
+
+    .board.players-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==========================================================
+   TELAS PEQUENAS
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .toolbar {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .toolbar-logo {
+        height: 34px;
+    }
+
+    .toolbar-button {
+        width: 42px;
+        height: 42px;
+        font-size: 22px;
+    }
+
+    .board {
+        height: calc(100% - 70px);
+        margin-top: 70px;
+    }
+
+    .counter {
+        padding: 6px;
+    }
+
+    .counter-inner {
+        gap: 6px;
+    }
+
+    .counter-number {
+        font-size: clamp(32px, 10vw, 58px);
+        min-width: 0;
+    }
+
+    .counter-button {
+        width: 24px;
+        height: 24px;
+        font-size: 22px;
+    }
+
+    .counter-value {
+        gap: 6px;
+    }
+
+    .initiative {
+        top: 8px;
+        right: 8px;
+    }
+
+}
