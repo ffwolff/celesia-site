@@ -154,7 +154,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
 
-    padding: 180px;
+    padding: 80px 0;
 
 }
 
@@ -421,9 +421,13 @@ p {
 
 .lore-image img {
 
-    width: 600px;
+    width: 100%;
 
-    height: 500px;
+    max-width: 600px;
+
+    height: auto;
+
+    aspect-ratio: 6 / 5;
 
     object-fit: cover;
 
@@ -901,6 +905,35 @@ footer a:hover {
     padding-top: 40px;
 }
 
+@media (max-width: 1100px) {
+
+    section {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .section-divider {
+        padding: 70px 0;
+    }
+
+    .jogo-content {
+        gap: 40px;
+    }
+
+    .jogo-imagens {
+        flex: 0 0 320px;
+        gap: 20px;
+    }
+
+    .jogo-img {
+        width: 240px;
+    }
+
+    .quem-somos-block {
+        gap: 40px;
+    }
+}
+
 @media (max-width: 1400px) {
 
     .lore-content {
@@ -917,11 +950,10 @@ footer a:hover {
     }
 
     .lore-image img {
-
         width: 100%;
-
-        height: 600px;
-
+        height: auto;
+        aspect-ratio: 6 / 5;
+        object-fit: cover;
     }
 }
 
@@ -970,11 +1002,10 @@ footer a:hover {
     }
 
     .lore-image img {
-
         width: 100%;
-
-        height: 400px;
-
+        height: auto;
+        aspect-ratio: 6 / 5;
+        object-fit: cover;
     }
 
     .social-content-container {
@@ -1023,8 +1054,8 @@ footer a:hover {
     }
 
     section {
-        padding: 0px 24px;
-        scroll-margin-top: 30px;        
+        padding: 0 24px;
+        scroll-margin-top: 70px;
     }
 
     .section-divider {
@@ -1083,7 +1114,20 @@ footer a:hover {
     }
 
     .jogo-imagens {
-        display: none;
+        display: flex;
+        flex: none;
+        width: 100%;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .jogo-img {
+        width: min(280px, 85vw);
+    }
+
+    .jogo-img:nth-child(odd),
+    .jogo-img:nth-child(even) {
+        align-self: center;
     }
 
     .social-grid {
@@ -1129,10 +1173,9 @@ footer a:hover {
 
     }
 
-    .quem-somos-imag img {
-
+    .quem-somos-img img {
+        width: 100%;
         max-width: 320px;
-
     }
 
     .social-card {
@@ -1228,4 +1271,38 @@ footer a:hover {
 
     }
 
+}
+
+@media (max-width: 480px) {
+
+    section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .title-logo {
+        padding-top: 40px;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .hero-logo {
+        max-width: 85%;
+        max-height: 90px;
+    }
+
+    .contato-redes {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .contato-redes a {
+        width: 100%;
+    }
 }
