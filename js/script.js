@@ -147,15 +147,7 @@ document.querySelectorAll('.nav-link')
 
 });
 
-function updateImage() {
-    const img = document.getElementById("banner-logo");
 
-    if (window.innerWidth <= 768) {
-        img.src = "assets/images/celesia_cristal.png";
-    } else {
-        img.src = "assets/images/LOGO_Celesia_site-02.png";
-    }
-}
 
 updateImage();
 window.addEventListener("resize", updateImage);
