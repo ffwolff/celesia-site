@@ -1,8 +1,3 @@
-
-/* ==========================================================
-   TOOLBAR
-========================================================== */
-
 .toolbar {
     position: fixed;
     top: 12px;
@@ -78,11 +73,6 @@
     display: none !important;
 }
 
-
-/* ==========================================================
-   BOARD
-========================================================== */
-
 .board {
     width: 100%;
     height: calc(100% - 84px);
@@ -95,11 +85,6 @@
     min-height: 0;
 }
 
-
-/* ==========================================================
-   PLAYER
-========================================================== */
-
 .player {
     position: relative;
     overflow: hidden;
@@ -110,11 +95,6 @@
     background: var(--primary);
 }
 
-
-/* ==========================================================
-   ESTRUTURA DOS QUADRANTES
-========================================================== */
-
 .player-content {
     width: 100%;
     height: 100%;
@@ -124,11 +104,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
 }
-
-
-/* ==========================================================
-   QUADRANTES
-========================================================== */
 
 .counter {
     position: relative;
@@ -158,11 +133,6 @@
     border-top: var(--player-border);
 }
 
-
-/* ==========================================================
-   CONTEÚDO INTERNO
-========================================================== */
-
 .counter-inner {
     width: 100%;
     height: 100%;
@@ -175,11 +145,6 @@
 
     gap: 10px;
 }
-
-
-/* ==========================================================
-   VALORES
-========================================================== */
 
 .counter-value {
     display: flex;
@@ -198,11 +163,6 @@
     font-weight: 300;
     line-height: 1;
 }
-
-
-/* ==========================================================
-   BOTÕES DOS CONTADORES
-========================================================== */
 
 .counter-button {
     width: 34px;
@@ -227,11 +187,6 @@
     transform: scale(.92);
 }
 
-
-/* ==========================================================
-   ÍCONES
-========================================================== */
-
 .counter-icon {
     width: 26px;
     height: 26px;
@@ -247,49 +202,57 @@
     object-fit: contain;
 }
 
-
-/* ==========================================================
-   INICIATIVA
-========================================================== */
-
-.initiative {
+.initiative-slot {
     position: absolute;
 
-    top: 14px;
-    right: 14px;
+    top: 0;
+    right: 0;
 
-    width: 28px;
-    height: 28px;
+    width: 50%;
+    height: 50%;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    opacity: 0;
-    transition: var(--transition);
+    justify-content: center;
 
     pointer-events: none;
     z-index: 2;
 }
 
-.initiative.active {
-    opacity: 1;
-}
 
-.initiative img {
+.initiative {
+    grid-area: 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    min-width: 0;
+    min-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+.initiative.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .initiative-symbol {
     color: var(--initiative-color);
-    font-size: 28px;
+    font-size: var(--counter-number);
+    line-height: 1;
 }
 
 
-/* ==========================================================
-   DESKTOP
-========================================================== */
+.initiative img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 
 .board.players-1 {
     grid-template-columns: minmax(0, 1fr);
@@ -317,38 +280,17 @@
     grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
-
-/* ==========================================================
-   TABLET E MOBILE
-========================================================== */
-
 @media (max-width: 900px) {
-
-    /* ------------------------------------------
-       1 JOGADOR
-    ------------------------------------------ */
 
     .board.players-1 {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: minmax(0, 1fr);
     }
 
-
-    /* ------------------------------------------
-       2 JOGADORES
-       Cima e baixo.
-    ------------------------------------------ */
-
     .board.players-2 {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: repeat(2, minmax(0, 1fr));
     }
-
-
-    /* ------------------------------------------
-        3 JOGADORES
-        Três painéis iguais, empilhados verticalmente.
-    ------------------------------------------ */
 
     .board.players-3 {
         grid-template-columns: minmax(0, 1fr);
@@ -360,40 +302,15 @@
     }
 
 
-    /* ------------------------------------------
-       4 JOGADORES
-       Esquerda, direita, esquerda, direita.
-
-       Grade 2x2.
-    ------------------------------------------ */
-
     .board.players-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(2, minmax(0, 1fr));
     }
 
-
-    /* ------------------------------------------
-       5 JOGADORES
-       Esquerda, direita, esquerda, direita,
-       baixo e uma célula vazia.
-
-       Grade 2x3.
-    ------------------------------------------ */
-
     .board.players-5 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(3, minmax(0, 1fr));
     }
-
-
-    /* ------------------------------------------
-       6 JOGADORES
-       Esquerda, direita, esquerda, direita,
-       esquerda, direita.
-
-       Grade 2x3.
-    ------------------------------------------ */
 
     .board.players-6 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -401,11 +318,6 @@
     }
 
 }
-
-
-/* ==========================================================
-   TELAS PEQUENAS
-========================================================== */
 
 @media (max-width: 768px) {
 

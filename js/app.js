@@ -1,15 +1,3 @@
-
-/*
-==========================================================
-CELESIA Companion
-Application Controller
-==========================================================
-*/
-
-// ========================================================
-// CONFIGURAÇÕES
-// ========================================================
-
 const MIN_PLAYERS = 1;
 const MAX_PLAYERS = 6;
 
@@ -25,17 +13,11 @@ const PLAYER_COLORS = [
     "#EA659B"
 ];
 
-// ========================================================
-// ESTADO DA APLICAÇÃO
-// ========================================================
 
 const players = [];
 
 let nextPlayerId = 1;
 
-// ========================================================
-// INICIALIZAÇÃO
-// ========================================================
 
 function initializeApp() {
 
@@ -58,7 +40,6 @@ function initializeApp() {
 
     }
 
-    // Primeiro jogador começa com a iniciativa
     players[0].setInitiative(true);
 
     setupToolbar();
@@ -66,10 +47,6 @@ function initializeApp() {
     renderApp();
 
 }
-
-// ========================================================
-// TOOLBAR
-// ========================================================
 
 function setupToolbar() {
 
@@ -87,19 +64,11 @@ function setupToolbar() {
 
 }
 
-// ========================================================
-// RENDERIZAÇÃO
-// ========================================================
-
 function renderApp() {
 
     renderBoard(players);
 
 }
-
-// ========================================================
-// ADICIONAR JOGADOR
-// ========================================================
 
 function addPlayer() {
 
@@ -125,10 +94,6 @@ function addPlayer() {
 
 }
 
-// ========================================================
-// REMOVER JOGADOR
-// ========================================================
-
 function removePlayer() {
 
     if (players.length <= MIN_PLAYERS) {
@@ -137,8 +102,6 @@ function removePlayer() {
 
     const removedPlayer = players.pop();
 
-    // Se o jogador removido tinha a iniciativa,
-    // transfere para o último jogador existente.
     if (removedPlayer.initiative) {
 
         const nextPlayer = players[players.length - 1];
@@ -155,10 +118,6 @@ function removePlayer() {
 
 }
 
-// ========================================================
-// PASSAR INICIATIVA
-// ========================================================
-
 function nextInitiative() {
 
     if (players.length === 0) {
@@ -173,21 +132,15 @@ function nextInitiative() {
         ? 0
         : (currentIndex + 1) % players.length;
 
-    // Remove a iniciativa de todos
     players.forEach(player => {
         player.setInitiative(false);
     });
 
-    // Entrega ao próximo jogador
     players[nextIndex].setInitiative(true);
 
     renderApp();
 
 }
-
-// ========================================================
-// ALTERAÇÃO DE RECURSOS
-// ========================================================
 
 function updateResource(playerId, resource, amount) {
 
@@ -237,9 +190,5 @@ function updateResource(playerId, resource, amount) {
     renderApp();
 
 }
-
-// ========================================================
-// INICIALIZAR QUANDO O DOCUMENTO ESTIVER PRONTO
-// ========================================================
 
 document.addEventListener("DOMContentLoaded", initializeApp);

@@ -1,14 +1,3 @@
-
-/*
- * CELESIA Companion
- * Responsável por criar e atualizar a interface dos jogadores.
- */
-
-
-/* ==========================================================
-   CONFIGURAÇÃO DOS RECURSOS
-========================================================== */
-
 const RESOURCE_CONFIG = {
     life: {
         name: "Vida",
@@ -25,18 +14,6 @@ const RESOURCE_CONFIG = {
         icon: "✦"
     }
 };
-
-
-/* ==========================================================
-   ORIENTAÇÃO DOS JOGADORES
-========================================================== */
-
-/*
- * 0    = em pé / parte inferior
- * 180  = de cabeça para baixo / parte superior
- * 90   = lateral esquerda
- * -90  = lateral direita
- */
 
 function getOrientation(index, count) {
 
@@ -67,10 +44,6 @@ function getOrientation(index, count) {
     return orientations[count]?.[index] ?? 0;
 }
 
-/* ==========================================================
-   ROTAÇÃO DO PAINEL COMPLETO
-========================================================== */
-
 function applyPlayerOrientation(panel, orientation) {
 
     const content = panel.querySelector(".player-content");
@@ -90,11 +63,6 @@ function applyPlayerOrientation(panel, orientation) {
     content.style.left = "50%";
     content.style.top = "50%";
     content.style.transformOrigin = "center center";
-
-    /*
-     * Para rotações laterais, invertemos largura e altura
-     * antes de girar o painel.
-     */
 
     if (orientation === 90 || orientation === -90) {
 
@@ -138,11 +106,6 @@ function applyBoardOrientations() {
     });
 }
 
-
-/* ==========================================================
-   BOTÕES DA TOOLBAR
-========================================================== */
-
 function updatePlayerToolbar(count) {
 
     const removeButton = document.getElementById("remove-player");
@@ -156,11 +119,6 @@ function updatePlayerToolbar(count) {
         addButton.hidden = count >= 6;
     }
 }
-
-
-/* ==========================================================
-   BOTÕES DOS RECURSOS
-========================================================== */
 
 function createResourceButton(player, resource, amount) {
 
@@ -188,11 +146,6 @@ function createResourceButton(player, resource, amount) {
 
     return button;
 }
-
-
-/* ==========================================================
-   CONTADOR
-========================================================== */
 
 function createCounter(player, resource) {
 
@@ -269,10 +222,6 @@ function createCounter(player, resource) {
 }
 
 
-/* ==========================================================
-   INICIATIVA
-========================================================== */
-
 function createInitiativeIndicator(player) {
 
     const indicator = document.createElement("div");
@@ -296,10 +245,6 @@ function createInitiativeIndicator(player) {
 }
 
 
-/* ==========================================================
-   FUNDO DO JOGADOR
-========================================================== */
-
 function applyPlayerBackground(element, background) {
 
     if (!background || !background.value) {
@@ -320,62 +265,36 @@ function applyPlayerBackground(element, background) {
 }
 
 
-/* ==========================================================
-   CRIAÇÃO DO JOGADOR
-========================================================== */
-
 function createPlayer(player) {
-
     const panel = document.createElement("article");
 
     panel.className = "player";
-
     panel.dataset.playerId = player.id;
 
-    applyPlayerBackground(
-        panel,
-        player.background
-    );
-
-    const initiative = createInitiativeIndicator(player);
+    applyPlayerBackground(panel, player.background);
 
     const content = document.createElement("div");
-
     content.className = "player-content";
 
-    const life = createCounter(
-        player,
-        "life"
-    );
+    const life = createCounter(player, "life");
+    const power = createCounter(player, "power");
+    const channeling = createCounter(player, "channeling");
 
-    const power = createCounter(
-        player,
-        "power"
-    );
-
-    const channeling = createCounter(
-        player,
-        "channeling"
-    );
+    const initiative = createInitiativeIndicator(player);
+    initiative.style.gridArea = "1 / 2";
 
     content.append(
         life,
+        initiative,
         power,
         channeling
     );
 
-    panel.append(
-        initiative,
-        content
-    );
+    panel.appendChild(content);
 
     return panel;
 }
 
-
-/* ==========================================================
-   RENDERIZAÇÃO DO TABULEIRO
-========================================================== */
 
 function renderBoard(players) {
 
@@ -408,11 +327,6 @@ function renderBoard(players) {
         applyBoardOrientations();
     });
 }
-
-
-/* ==========================================================
-   REDIMENSIONAMENTO
-========================================================== */
 
 window.addEventListener("resize", () => {
 

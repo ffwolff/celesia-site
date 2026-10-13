@@ -147,8 +147,6 @@ document.querySelectorAll('.nav-link')
 
 });
 
-
-
 updateImage();
 window.addEventListener("resize", updateImage);
 
