@@ -334,7 +334,7 @@ nav a:hover {
             align-self: flex-end;
         }
 
-        .jogo-img:nth-child(even) {
+.jogo-img:nth-child(even) {
             align-self: flex-start;
         }
 
@@ -730,70 +730,152 @@ p {
 
     gap: 32px;
 
+    width: 100%;
+
 }
 
 .quem-somos-block {
 
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 64px;
-
-    align-items: center;
-
+    display: flex; 
+    
+    flex-direction: row; 
+    
+    align-items: flex-start; 
+    
+    gap: 80px; 
+    
+    width: 100%; 
+    
     margin-bottom: 100px;
 
 }
 
-.quem-somos-text {
+.quem-somos-texto {
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 20px;
+    align-items: flex-start;
+
+    flex: 1;
+
+    min-width: 0;
+
+    gap: 24px;
+
+    order: 2;
 
 }
 
 .quem-somos-img {
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
+    flex: 0 0 420px; 
+    width: 420px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 0; 
+    position: relative; 
+    order: 1;
 }
 
+.quem-somos-img img:nth-child(odd) {
+            align-self: flex-end;
+        }
+
+.quem-somos-img img:nth-child(even) {
+            align-self: flex-start;
+            
+        }
+
 .quem-somos-img img {
-
-    width: 100%;
-
-    max-width: 500px;
-
-    aspect-ratio: 1 / 1;
-
-    object-fit: cover;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.4);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-
+    display: block; 
+    width: 280px; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+    transition: transform 0.3s ease; 
+    position: relative;
 }
 
 .quem-somos-img img:hover {
+    transform: scale(1.03);
+    z-index: 10;
+}
 
-    transform: scale(1.02);
+.equipe-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    margin-top: 48px;
+}
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.45);
+.equipe-content h2 {
+    margin-bottom: 16px;
+}
 
+.equipe-integrante {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.equipe-foto {
+    width: 180px;
+    height: 180px;
+    flex: 0 0 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.equipe-foto:hover {
+    transform: scale(1.04);
+}
+
+.equipe-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.equipe-info h3 {
+    font-family: "Clements";
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--light-blue);
+}
+
+.equipe-info h4 {
+    font-family: "Creato";
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: var(--pink);
+}
+
+.equipe-info p {
+    line-height: 1.6;
+}
+
+.equipe-integrante.tipo-a .equipe-foto {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.equipe-integrante.tipo-b .equipe-foto {
+    margin-left: 150px;
+    margin-right: 0;
 }
 
 .contato-redes { 
@@ -917,20 +999,110 @@ footer a:hover {
     }
 
     .jogo-content {
-        gap: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    .jogo-imagens .jogo-img:nth-child(odd),
+    .jogo-imagens .jogo-img:nth-child(even) {
+        align-self: flex-start;
+        margin-top: 0;
     }
 
     .jogo-imagens {
-        flex: 0 0 320px;
-        gap: 20px;
+        display: flex;
+
+        flex-direction: row;
+
+        flex-basis: 320px;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 12px;
+
+        margin-bottom: 0;
+
+        padding-bottom: 0;
+
+        order: 2;
+
+        flex: none;
+
+        width: 100%;
+
+        height: auto;
+
+        aspect-ratio: auto;
+
+        object-fit: cover;
+
+        gap: 16px;
+
+        transition: transform 0.2s ease;
+
+        will-change: transform;
+
+        backface-visibility: hidden;
     }
 
     .jogo-img {
-        width: 240px;
+        width: calc(50% - 8px);
+        max-width: none;
+        aspect-ratio: 3290 / 4250;
+        object-fit: cover;
+        transition: transform 0.2s ease;
+        will-change: transform;
+        backface-visibility: hidden;
     }
 
-    .quem-somos-block {
-        gap: 40px;
+    .quem-somos-block,
+        .quem-somos-block.reverse {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+    
+        .quem-somos-texto {
+            order: 1;
+            width: 100%;
+        }
+
+        .jogo-imagens .jogo-img:hover {
+        transform: scale(1.03);
+    }
+
+    .quem-somos-img {
+
+        display: flex;
+
+        flex-direction: row;
+
+        flex-basis: 320px;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 12px;
+
+        order: 2;
+
+        flex: none;
+
+        width: 100%;
+
+        gap: 16px;
+
+    }    
+
+    .quem-somos-img img {
+            width: calc(50% - 8px);
+            max-width: none;
     }
 }
 
@@ -1016,6 +1188,31 @@ footer a:hover {
 
     .text-container {
         width: 100%;
+    }
+
+    .equipe-content {
+        gap: 28px;
+        margin-top: 24px;
+    }
+
+    .equipe-integrante {
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 16px;
+    }
+
+    .equipe-foto {
+        width: 130px;
+        height: 130px;
+        flex-basis: 130px;
+    }
+
+    .equipe-info h3 {
+        font-size: 1.6rem;
+    }
+
+    .equipe-info h4 {
+        font-size: 1.05rem;
     }
 
     .social-image-container {
@@ -1117,6 +1314,8 @@ footer a:hover {
         display: flex;
         flex: none;
         width: 100%;
+        height: auto;
+        aspect-ratio: auto;
         align-items: center;
         gap: 24px;
     }
@@ -1153,38 +1352,13 @@ footer a:hover {
 
         width: 100%;
 
-    }
-
-    .quem-somos-block {
-
-    grid-template-columns: 1fr;
-
-    gap: 32px;
-
-    margin-bottom: 64px;
-
-}
-
-    .quem-somos-block.reverse {
-
-        display: flex;
-
-        flex-direction: column;
-
-    }
-
-    .quem-somos-img img {
-        width: 100%;
-        max-width: 320px;
-    }
+    }            
 
     .social-card {
 
         padding: 20px;
 
-    }
-
-    
+    }    
 
     .social-card h3 {
 
@@ -1295,6 +1469,37 @@ footer a:hover {
     .hero-logo {
         max-width: 85%;
         max-height: 90px;
+    }
+
+    .equipe-integrante {
+        gap: 16px;
+    }
+
+    .equipe-foto {
+        width: 96px;
+        height: 96px;
+        flex-basis: 96px;
+    }
+
+    .equipe-info {
+        gap: 6px;
+    }
+
+    .equipe-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .equipe-info h4 {
+        font-size: 0.95rem;
+    }
+
+    .equipe-info p {
+        font-size: 0.95rem;
+    }
+
+    .equipe-integrante.tipo-b .equipe-foto {
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .contato-redes {
