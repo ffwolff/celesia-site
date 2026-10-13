@@ -188,12 +188,11 @@
 }
 
 .counter-icon {
-    width: 26px;
-    height: 26px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: var(--counter-icon);
+    height: var(--counter-icon);
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
 }
 
 .counter-icon img {
@@ -241,9 +240,10 @@
 }
 
 .initiative-symbol {
-    color: var(--initiative-color);
-    font-size: var(--counter-number);
-    line-height: 1;
+    width: var(--counter-number);
+    height: var(--counter-number);
+    object-fit: contain;
+    display: block;
 }
 
 

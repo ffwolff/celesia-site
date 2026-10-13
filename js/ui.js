@@ -1,17 +1,17 @@
 const RESOURCE_CONFIG = {
     life: {
         name: "Vida",
-        icon: "♥"
+        icon: "assets/images/icons/icon_vida.png"
     },
 
     power: {
         name: "Poder",
-        icon: "⚔"
+        icon: "assets/images/icons/icon_poder.png"
     },
 
     channeling: {
         name: "Canalização",
-        icon: "✦"
+        icon: "assets/images/icons/icon-canalizacao.png"
     }
 };
 
@@ -167,11 +167,14 @@ function createCounter(player, resource) {
         counter.style.gridArea = "2 / 2";
     }
 
-    const icon = document.createElement("span");
+        
+    const icon = document.createElement("img");
 
     icon.className = "counter-icon";
-    icon.textContent = config.icon;
+    icon.src = config.icon;
+    icon.alt = "";
     icon.setAttribute("aria-hidden", "true");
+
 
     const valueContainer = document.createElement("div");
 
@@ -233,11 +236,12 @@ function createInitiativeIndicator(player) {
     }
 
     indicator.setAttribute("aria-hidden", "true");
-
-    const symbol = document.createElement("span");
+    
+    const symbol = document.createElement("img");
 
     symbol.className = "initiative-symbol";
-    symbol.textContent = "✦";
+    symbol.src = "assets/images/icons/icon_iniciativa.png";
+    symbol.alt = "";
 
     indicator.appendChild(symbol);
 
