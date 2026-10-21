@@ -90,6 +90,11 @@ function addPlayer() {
 
     players.push(player);
 
+    if (players.length === 2) {
+        players[0].setInitiative(true);
+        players[1].setInitiative(false);
+    }
+
     renderApp();
 
 }

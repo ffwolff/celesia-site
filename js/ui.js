@@ -33,11 +33,11 @@ function getOrientation(index, count) {
 
         3: [180, -90, 0],
 
-        4: [90, -90, 90, -90],
+        4: [90, -90, 90, -90]
 
-        5: [90, -90, 90, -90, 0],
+        //5: [90, -90, 90, -90, 0],
 
-        6: [90, -90, 90, -90, 90, -90]
+       // 6: [90, -90, 90, -90, 90, -90]
 
     };
 
@@ -116,7 +116,7 @@ function updatePlayerToolbar(count) {
     }
 
     if (addButton) {
-        addButton.hidden = count >= 6;
+        addButton.hidden = count >= 4;
     }
 }
 
