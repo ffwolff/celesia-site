@@ -295,49 +295,6 @@ nav a:hover {
 
 }
 
-.jogo-imagens {
-
-    flex: 0 0 420px;
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-.jogo-img {
-
-    position: relative;
-
-    width: 280px;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.4);
-
-    transition:
-        transform 0.3s ease;
-
-        z-index: 1;
-}
-
-.jogo-img:hover {
-
-    transform: scale(1.03);
-
-    z-index: 10;
-
-}
-
-.jogo-img:nth-child(odd) {
-            align-self: flex-end;
-        }
-
-.jogo-img:nth-child(even) {
-            align-self: flex-start;
-        }
-
 section {
 
     padding: 0 120px;
@@ -768,7 +725,7 @@ p {
 
 }
 
-.quem-somos-img {
+.card-img {
 
     flex: 0 0 420px; 
     width: 420px;
@@ -780,16 +737,16 @@ p {
     order: 1;
 }
 
-.quem-somos-img img:nth-child(odd) {
+.card-img img:nth-child(odd) {
             align-self: flex-end;
         }
 
-.quem-somos-img img:nth-child(even) {
+.card-img img:nth-child(even) {
             align-self: flex-start;
             
         }
 
-.quem-somos-img img {
+.card-img img {
     display: block; 
     width: 280px; 
     max-width: 100%; 
@@ -800,7 +757,7 @@ p {
     position: relative;
 }
 
-.quem-somos-img img:hover {
+.card-img img:hover {
     transform: scale(1.03);
     z-index: 10;
 }
@@ -1005,60 +962,6 @@ footer a:hover {
         margin-bottom: 24px;
     }
 
-    .jogo-imagens .jogo-img:nth-child(odd),
-    .jogo-imagens .jogo-img:nth-child(even) {
-        align-self: flex-start;
-        margin-top: 0;
-    }
-
-    .jogo-imagens {
-        display: flex;
-
-        flex-direction: row;
-
-        flex-basis: 320px;
-
-        align-items: flex-start;
-
-        justify-content: flex-start;
-
-        gap: 12px;
-
-        margin-bottom: 0;
-
-        padding-bottom: 0;
-
-        order: 2;
-
-        flex: none;
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio: auto;
-
-        object-fit: cover;
-
-        gap: 16px;
-
-        transition: transform 0.2s ease;
-
-        will-change: transform;
-
-        backface-visibility: hidden;
-    }
-
-    .jogo-img {
-        width: calc(50% - 8px);
-        max-width: none;
-        aspect-ratio: 3290 / 4250;
-        object-fit: cover;
-        transition: transform 0.2s ease;
-        will-change: transform;
-        backface-visibility: hidden;
-    }
-
     .quem-somos-block,
         .quem-somos-block.reverse {
             display: flex;
@@ -1072,11 +975,7 @@ footer a:hover {
             width: 100%;
         }
 
-        .jogo-imagens .jogo-img:hover {
-        transform: scale(1.03);
-    }
-
-    .quem-somos-img {
+    .card-img {
 
         display: flex;
 
@@ -1100,7 +999,7 @@ footer a:hover {
 
     }    
 
-    .quem-somos-img img {
+    .card-img img {
             width: calc(50% - 8px);
             max-width: none;
     }
@@ -1308,25 +1207,6 @@ footer a:hover {
     .jogo-content {
         flex-direction: column;
         gap: 40px;
-    }
-
-    .jogo-imagens {
-        display: flex;
-        flex: none;
-        width: 100%;
-        height: auto;
-        aspect-ratio: auto;
-        align-items: center;
-        gap: 24px;
-    }
-
-    .jogo-img {
-        width: min(280px, 85vw);
-    }
-
-    .jogo-img:nth-child(odd),
-    .jogo-img:nth-child(even) {
-        align-self: center;
     }
 
     .social-grid {
