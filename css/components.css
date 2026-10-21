@@ -260,13 +260,11 @@
     display: block;
 }
 
-
 .initiative img {
     width: 40%;
     height: 40%;
     object-fit: contain;
 }
-
 
 .board.players-1 {
     grid-template-columns: minmax(0, 1fr);
@@ -406,10 +404,10 @@
     }
 
     .initiative img {
-    width: 60%;
-    height: 60%;
-    object-fit: contain;
-}
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+    }
 
 }
 
