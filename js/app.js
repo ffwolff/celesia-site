@@ -118,29 +118,34 @@ function removePlayer() {
 
 }
 
-function nextInitiative() {
 
+function nextInitiative() {
     if (players.length === 0) {
         return;
     }
 
+    // Com apenas um jogador, alterna entre mostrar e esconder.
+    if (players.length === 1) {
+        players[0].setInitiative(!players[0].initiative);
+        renderApp();
+        return;
+    }
+
+    // Com vários jogadores, passa a iniciativa normalmente.
     const currentIndex = players.findIndex(
         player => player.initiative
     );
 
-    const nextIndex = currentIndex === -1
-        ? 0
-        : (currentIndex + 1) % players.length;
+    const nextIndex =
+        (currentIndex + 1) % players.length;
 
-    players.forEach(player => {
-        player.setInitiative(false);
+    players.forEach((player, index) => {
+        player.setInitiative(index === nextIndex);
     });
 
-    players[nextIndex].setInitiative(true);
-
     renderApp();
-
 }
+
 
 function updateResource(playerId, resource, amount) {
 

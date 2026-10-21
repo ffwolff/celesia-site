@@ -95,7 +95,7 @@ class Player {
             data.background
         );
 
-        player.life = data.life ?? 20;
+        player.life = data.life ?? 30;
         player.power = data.power ?? 0;
         player.channeling = data.channeling ?? 0;
 
