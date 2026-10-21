@@ -5,7 +5,7 @@ class Player {
         this.id = id;
 
         // Recursos
-        this.life = 20;
+        this.life = 30;
         this.power = 0;
         this.channeling = 0;
 
