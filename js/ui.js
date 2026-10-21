@@ -225,8 +225,10 @@ function createCounter(player, resource) {
 }
 
 
-function createInitiativeIndicator(player) {
 
+
+
+function createInitiativeIndicator(player) {
     const indicator = document.createElement("div");
 
     indicator.className = "initiative";
@@ -235,8 +237,10 @@ function createInitiativeIndicator(player) {
         indicator.classList.add("active");
     }
 
-    indicator.setAttribute("aria-hidden", "true");
-    
+    indicator.setAttribute("role", "button");
+    indicator.setAttribute("tabindex", "0");
+    indicator.setAttribute("aria-label", "Passar iniciativa");
+
     const symbol = document.createElement("img");
 
     symbol.className = "initiative-symbol";
@@ -245,8 +249,22 @@ function createInitiativeIndicator(player) {
 
     indicator.appendChild(symbol);
 
+    function passInitiative() {
+        nextInitiative();
+    }
+
+    indicator.addEventListener("click", passInitiative);
+
+    indicator.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            passInitiative();
+        }
+    });
+
     return indicator;
 }
+
 
 
 function applyPlayerBackground(element, background) {
