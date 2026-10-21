@@ -133,17 +133,10 @@
     min-height: 0;
 }
 
-.counter-life {
-    border-right: var(--player-border);
-    border-bottom: var(--player-border);
-}
-
-.counter-power {
-    border-right: var(--player-border);
-}
-
+.counter-life,
+.counter-power,
 .counter-channeling {
-    border-top: var(--player-border);
+    border: none !important;
 }
 
 .counter-inner {
