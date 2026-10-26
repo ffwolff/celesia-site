@@ -409,3 +409,27 @@
     font-size: clamp(80px, 12vw, 100px) !important;
     font-weight: 400;
 }
+
+#board {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 0;
+}
+
+@media (max-width: 768px) {
+    #board {
+        top: 72px;
+    }
+}
