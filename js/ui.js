@@ -107,16 +107,15 @@ function applyBoardOrientations() {
 }
 
 function updatePlayerToolbar(count) {
-
     const removeButton = document.getElementById("remove-player");
     const addButton = document.getElementById("add-player");
 
     if (removeButton) {
-        removeButton.hidden = count <= 1;
+        removeButton.disabled = count <= 1;
     }
 
     if (addButton) {
-        addButton.hidden = count >= 4;
+        addButton.disabled = count >= 4;
     }
 }
 

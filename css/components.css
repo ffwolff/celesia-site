@@ -71,6 +71,12 @@
     background: var(--secondary);
 }
 
+#remove-player:disabled,
+#add-player:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 #next-initiative {
     background: var(--toolbar-button-background);
 }
@@ -402,8 +408,11 @@
         object-fit: contain;
     }
 
-}
+    #board {
+        top: 72px;
+    }
 
+}
 
 .counter-life .counter-number {
     font-size: clamp(80px, 12vw, 100px) !important;
@@ -426,10 +435,4 @@
     box-sizing: border-box;
     overflow: hidden;
     min-height: 0;
-}
-
-@media (max-width: 768px) {
-    #board {
-        top: 72px;
-    }
 }
