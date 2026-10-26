@@ -39,18 +39,7 @@ html {
     scroll-behavior:smooth;
 }
 
-html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-}
-
-body {
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
     font-family:"Creato";
     background:
         radial-gradient(
