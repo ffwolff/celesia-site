@@ -1,17 +1,17 @@
 const RESOURCE_CONFIG = {
     life: {
         name: "Vida",
-        icon: "assets/images/icons/icon_vida.png"
+        icon: "assets/icons/CCG_Icones_VIDA_BRANCO.png"
     },
 
     power: {
         name: "Poder",
-        icon: "assets/images/icons/icon_poder.png"
+        icon: "assets/icons/CCG_Icones_PODER_BRANCO.png"
     },
 
     channeling: {
         name: "Canalização",
-        icon: "assets/images/icons/icon-canalizacao.png"
+        icon: "assets/icons/CCG_Icones_DEFESA_BRANCO.png"
     }
 };
 
@@ -244,7 +244,7 @@ function createInitiativeIndicator(player) {
     const symbol = document.createElement("img");
 
     symbol.className = "initiative-symbol";
-    symbol.src = "assets/images/icons/icon_iniciativa.png";
+    symbol.src = "assets/icons/celesia_cristal.png";
     symbol.alt = "";
 
     indicator.appendChild(symbol);
