@@ -156,15 +156,11 @@ function createCounter(player, resource) {
     counter.className = `counter counter-${resource}`;
 
     if (resource === "life") {
-        counter.style.gridArea = "1 / 1 / 2 / 4";
+        counter.style.gridArea = "1 / 1 / 2 / 3";
     }
 
     if (resource === "power") {
         counter.style.gridArea = "2 / 1";
-    }
-
-    if (resource === "channeling") {
-        counter.style.gridArea = "2 / 2";
     }
 
         
@@ -300,15 +296,13 @@ function createPlayer(player) {
 
     const life = createCounter(player, "life");
     const power = createCounter(player, "power");
-    const channeling = createCounter(player, "channeling");
 
     const initiative = createInitiativeIndicator(player);
-    initiative.style.gridArea = "2 / 3";
+    initiative.style.gridArea = "2 / 2";
 
     content.append(
         life,
         power,
-        channeling,
         initiative
     );
 
