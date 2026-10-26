@@ -146,10 +146,10 @@ document.querySelectorAll('.nav-link')
     });
 
 });
-
+/*
 const domain =
     window.location.hostname || 'localhost';
-/*
+
 document
     .getElementById('twitch-player')
     .src =
