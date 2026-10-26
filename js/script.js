@@ -147,9 +147,6 @@ document.querySelectorAll('.nav-link')
 
 });
 
-updateImage();
-window.addEventListener("resize", updateImage);
-
 const domain =
     window.location.hostname || 'localhost';
 
