@@ -149,18 +149,25 @@ nav a:hover {
 }
 
 .section-divider {
-
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-direction: row;
+    gap: 40px;
     padding: 80px 0;
+}
 
+#icone-celesia {
+    max-height: 120px;
+
+    width: auto;
+
+    display: block;
 }
 
 .section-divider img {
 
-    max-height: 120px;
+    max-height: 56px;
 
     width: auto;
 
@@ -296,34 +303,23 @@ nav a:hover {
 }
 
 section {
-
     padding: 0 120px;
-
     scroll-margin-top: 100px;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 64px;
-
 }
 
 h2 {
-
     font-family:"Clements";
-
     font-size:4rem;
-
 }
 
 p {
-
     font-family:"Creato";
-
     font-size:1.4rem;
-
     color:white;
-
 }
 
 .body-link {
@@ -337,29 +333,17 @@ p {
     flex: 1;
 }
 
-
-
 .lore-content {
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 64px;
-
     align-items: start;
-
 }
 
 .lore-text {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 16px;
-
-
 }
 
 .lore-text p:first-child {
@@ -367,35 +351,22 @@ p {
 }
 
 .lore-image {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
 }
 
 .lore-image img {
-
     width: 100%;
-
     max-width: 600px;
-
     height: auto;
-
     aspect-ratio: 6 / 5;
-
     object-fit: cover;
-
     border-radius: 16px;
-
     box-shadow:
         0 10px 30px rgba(0,0,0,0.4);
-
     transition:
         transform 0.3s ease;
-
 }
 
 .lore-image img:hover {
@@ -1147,6 +1118,7 @@ footer a:hover {
 
     .title-logo {
         max-height: 550px;
+        padding-top: 30px;
     }
 
     section {
@@ -1155,8 +1127,24 @@ footer a:hover {
     }
 
     .section-divider {
-
         padding: 24px 0;
+    }
+
+    #icone-celesia {
+        max-height: 60px;
+
+        width: auto;
+
+        display: block;
+    }
+
+    .section-divider img {
+
+        max-height: 28px;
+
+        width: auto;
+
+        display: block;
 
     }
 
