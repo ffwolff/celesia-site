@@ -149,8 +149,8 @@ document.querySelectorAll('.nav-link')
 
 const domain =
     window.location.hostname || 'localhost';
-
+/*
 document
     .getElementById('twitch-player')
     .src =
-    `https://player.twitch.tv/?channel=celesiacg&parent=${domain}`;
+    `https://player.twitch.tv/?channel=celesiacg&parent=${domain}`; */
