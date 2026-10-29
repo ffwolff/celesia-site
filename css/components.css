@@ -237,8 +237,7 @@
 }
 
 .counter-button:hover {
-    color: white;
-    transform: scale(1.08);
+    color: var(--text-secondary);
 }
 
 .counter-button:active {
@@ -426,20 +425,11 @@
         height: clamp(24px, 9cqh, 64px);
         flex: 0 1 auto;
         aspect-ratio: 1;
-        font-size: clamp(17.5px, 4.375cqh, 30px);
+        font-size: clamp(35px, 8.75cqh, 60px);
         border-radius: 0;
     }
 
-    .counter-buttons .counter-button-plus::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 10%;
-        width: 80%;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.65);
-        pointer-events: none;
-    }
+    
 
     .counter-buttons .counter-button-minus {
         border-top: none;
@@ -474,7 +464,7 @@
     .counter-buttons .counter-button {
         width: clamp(30px, 11cqh, 76px);
         height: clamp(30px, 11cqh, 76px);
-        font-size: clamp(18px, 5.625cqh, 35px);
+        font-size: clamp(35px, 8.75cqh, 60px);
     }
 
     .initiative-symbol {
@@ -559,7 +549,7 @@
         height: clamp(24px, 9cqh, 56px);
         flex: 0 1 auto;
         aspect-ratio: 1;
-        font-size: clamp(17.5px, 4.375cqh, 27.5px);
+        font-size: clamp(35px, 8.75cqh, 55px);
     }
 
     .counter-number {
