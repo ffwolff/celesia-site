@@ -115,6 +115,9 @@ function createResourceButton(player, resource, amount) {
 
     button.type = "button";
     button.className = "counter-button";
+    button.classList.add(
+        amount > 0 ? "counter-button-plus" : "counter-button-minus"
+    );
 
     button.textContent = amount > 0 ? "+" : "−";
 
@@ -189,10 +192,17 @@ function createCounter(player, resource) {
         1
     );
 
+    const buttonsContainer = document.createElement("div");
+    buttonsContainer.className = "counter-buttons";
+
+    buttonsContainer.append(
+        increaseButton,
+        decreaseButton
+    );
+
     valueContainer.append(
-        decreaseButton,
         number,
-        increaseButton
+        buttonsContainer
     );
 
     const inner = document.createElement("div");

@@ -1,20 +1,17 @@
+
 .toolbar {
     position: fixed;
     top: 12px;
     left: 12px;
     right: 12px;
     height: 72px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 18px;
     border-radius: 20px;
-
     background: var(--toolbar-background);
     backdrop-filter: blur(18px);
-
     z-index: 1000;
     box-shadow: var(--shadow);
 }
@@ -33,7 +30,6 @@
     margin-left: auto;
     margin-right: 0;
     flex-direction: row-reverse;
-
 }
 
 .toolbar-right {
@@ -52,14 +48,11 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
     font-size: 26px;
-
     transition: var(--transition);
 }
 
@@ -98,10 +91,8 @@
     width: 100%;
     height: calc(100% - 84px);
     margin-top: 84px;
-
     display: grid;
     gap: 2px;
-
     overflow: hidden;
     min-height: 0;
 }
@@ -109,10 +100,8 @@
 .player {
     position: relative;
     overflow: hidden;
-
     min-width: 0;
     min-height: 0;
-
     background: var(--primary);
 }
 
@@ -126,15 +115,11 @@
 
 .counter {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     padding: 12px;
-
     min-width: 0;
     min-height: 0;
 }
@@ -148,29 +133,28 @@
 .counter-inner {
     width: 100%;
     height: 100%;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     gap: 10px;
 }
 
 .counter-value {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-
     gap: 14px;
+}
+
+.counter-buttons {
+    display: contents;
 }
 
 .counter-number {
     min-width: 70px;
-
     text-align: center;
-
     font-size: var(--counter-number);
     font-weight: 300;
     line-height: 1;
@@ -221,17 +205,13 @@
 
 .initiative-slot {
     position: absolute;
-
     top: 0;
     right: 0;
-
     width: 50%;
     height: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     pointer-events: none;
     z-index: 2;
 }
@@ -297,8 +277,33 @@
     grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 1001px) {
+    .counter-value {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+    }
 
+    .counter-buttons {
+        display: contents;
+    }
+
+    .counter-button-minus {
+        order: 1;
+    }
+
+    .counter-number {
+        order: 2;
+    }
+
+    .counter-button-plus {
+        order: 3;
+    }
+}
+
+@media (max-width: 1000px) {
     .board.players-1 {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: minmax(0, 1fr);
@@ -318,7 +323,6 @@
         grid-column: 1;
     }
 
-
     .board.players-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -334,32 +338,55 @@
         grid-template-rows: repeat(3, minmax(0, 1fr));
     }
 
-    .counter-life .counter-inner {
+    .counter-inner {
         position: relative;
         width: 100%;
         height: 100%;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
+        gap: 8px;
     }
 
-    .counter-life .counter-icon {
-        position: absolute;
-        left: 8px;
-        top: 50%;
-        transform: translateY(-50%);
+    .counter-icon {
+        position: static;
+        transform: none;
+        flex: 0 0 auto;
+        margin-right: 12px;
     }
 
-    .counter-life .counter-value {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+    .counter-value {
+        position: static;
+        left: auto;
+        transform: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: auto;
     }
 
+    .counter-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        flex: 0 0 auto;
+    }
+
+    .counter-buttons .counter-button {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+        flex: 0 0 50px;
+    }
 }
 
 @media (max-width: 768px) {
-
     .toolbar {
         height: 60px;
         padding: 0 10px;
@@ -421,7 +448,6 @@
     #board {
         top: 72px;
     }
-
 }
 
 .counter-life .counter-number {
@@ -435,14 +461,18 @@
     left: 0;
     right: 0;
     bottom: 0;
-
     width: 100%;
     height: auto;
     max-height: none;
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
     overflow: hidden;
     min-height: 0;
+}
+
+@media (max-width: 768px) {
+    #board {
+        top: 72px;
+    }
 }
