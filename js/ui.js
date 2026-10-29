@@ -15,34 +15,24 @@ const RESOURCE_CONFIG = {
     }
 };
 
-function getOrientation(index, count) {
 
-    const isMobile = window.matchMedia(
-        "(max-width: 900px)"
+function getOrientation(index, count) {
+    const isTouchDevice = window.matchMedia(
+        "(hover: none) and (pointer: coarse)"
     ).matches;
 
-    if (!isMobile) {
-        return 0;
-    }
+    if (!isTouchDevice) return 0;
 
     const orientations = {
-
         1: [0],
-
         2: [180, 0],
-
         3: [90, -90, 90],
-
         4: [90, -90, 90, -90]
-
-        //5: [90, -90, 90, -90, 0],
-
-       // 6: [90, -90, 90, -90, 90, -90]
-
     };
 
     return orientations[count]?.[index] ?? 0;
 }
+
 
 function applyPlayerOrientation(panel, orientation) {
 

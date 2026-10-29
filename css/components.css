@@ -177,17 +177,21 @@
 }
 
 .counter-button {
-    width: 34px;
-    height: 34px;
-
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    padding: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    color: rgba(255,255,255,.45);
-    font-size: 30px;
-
-    transition: var(--transition-fast);
+    justify-content: center;
+    flex: 0 0 100px;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 .counter-button:hover {
@@ -200,8 +204,10 @@
 }
 
 .counter-icon {
-    width: var(--counter-icon);
-    height: var(--counter-icon);
+    width: calc(var(--counter-icon) * 2);
+    height: calc(var(--counter-icon) * 2);
+    min-width: calc(var(--counter-icon) * 2);
+    min-height: calc(var(--counter-icon) * 2);
     object-fit: contain;
     display: block;
     flex-shrink: 0;
@@ -291,7 +297,7 @@
     grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
     .board.players-1 {
         grid-template-columns: minmax(0, 1fr);
@@ -388,8 +394,12 @@
     }
 
     .counter-button {
-        width: 24px;
-        height: 24px;
+        width: 77px;
+        height: 77px;
+        min-width: 77px;
+        min-height: 77px;
+        flex: 0 0 77px;
+        padding: 0;
         font-size: 22px;
     }
 
