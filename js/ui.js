@@ -26,7 +26,7 @@ function getOrientation(index, count) {
     const orientations = {
         1: [0],
         2: [180, 0],
-        3: [90, -90, 90],
+        3: [0, 90, -90],
         4: [90, -90, 90, -90]
     };
 
