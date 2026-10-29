@@ -1,4 +1,8 @@
 
+* {
+    box-sizing: border-box;
+}
+
 .toolbar {
     position: fixed;
     top: 12px;
@@ -16,43 +20,46 @@
     box-shadow: var(--shadow);
 }
 
-.toolbar-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: auto;
-}
-
-.toolbar-center {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: auto;
-    margin-right: 0;
-    flex-direction: row-reverse;
-}
-
+.toolbar-left,
+.toolbar-center,
 .toolbar-right {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+.toolbar-left {
+    margin-right: auto;
+}
+
+.toolbar-center {
+    margin-left: auto;
+    margin-right: 0;
+    flex-direction: row-reverse;
+}
+
+.toolbar-right {
+    flex-shrink: 0;
+}
+
 .toolbar-logo {
     height: 44px;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
     pointer-events: none;
 }
 
 .toolbar-button {
-    width: 50px;
-    height: 50px;
+    width: clamp(34px, 5vw, 50px);
+    height: clamp(34px, 5vw, 50px);
+    flex: 0 0 auto;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 26px;
+    font-size: clamp(18px, 2.5vw, 26px);
     transition: var(--transition);
 }
 
@@ -88,29 +95,45 @@
 }
 
 .board {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: calc(100% - 84px);
-    margin-top: 84px;
+    height: auto;
+    margin: 0;
+    padding: 0;
     display: grid;
     gap: 2px;
     overflow: hidden;
     min-height: 0;
+    min-width: 0;
 }
 
 .player {
     position: relative;
-    overflow: hidden;
     min-width: 0;
     min-height: 0;
+    padding: 4px;
+    overflow: hidden;
     background: var(--primary);
+    container-type: size;
+    isolation: isolate;
 }
 
 .player-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: 100%;
     height: 100%;
+    min-width: 0;
+    min-height: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
+    transform-origin: center center;
 }
 
 .counter {
@@ -119,9 +142,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 12px;
     min-width: 0;
     min-height: 0;
+    padding: clamp(2px, 1.2cqw, 12px);
+    overflow: hidden;
 }
 
 .counter-life,
@@ -133,11 +157,25 @@
 .counter-inner {
     width: 100%;
     height: 100%;
+    min-width: 0;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: clamp(2px, 1.2cqw, 10px);
+}
+
+.counter-icon {
+    display: block;
+    width: clamp(20px, 8cqh, 88px);
+    height: clamp(20px, 8cqh, 88px);
+    max-width: 35%;
+    max-height: 60%;
+    object-fit: contain;
+    flex: 0 1 auto;
+    min-width: 0;
+    min-height: 0;
 }
 
 .counter-value {
@@ -145,7 +183,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: clamp(2px, 1.2cqw, 14px);
+    min-width: 0;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .counter-buttons {
@@ -153,54 +195,60 @@
 }
 
 .counter-number {
-    min-width: 70px;
+    min-width: 0;
+    max-width: 100%;
     text-align: center;
-    font-size: var(--counter-number);
+    font-size: clamp(18px, 9cqh, 68px);
     font-weight: 300;
     line-height: 1;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.counter-life .counter-number {
+    font-size: clamp(28px, 13cqh, 100px) !important;
+    font-weight: 500 !important;
+}
+
+.counter-power .counter-number {
+    font-size: clamp(18px, 9cqh, 68px) !important;
+    font-weight: 300;
 }
 
 .counter-button {
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
-    min-height: 100px;
+    width: clamp(28px, 11cqh, 100px);
+    height: clamp(28px, 11cqh, 100px);
+    min-width: 0;
+    min-height: 0;
+    flex: 0 1 auto;
+    aspect-ratio: 1;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 100px;
     border: none;
+    border-radius: 12%;
     background: transparent;
-    font-size: 1.5rem;
+    font-size: clamp(16px, 4cqh, 30px);
     line-height: 1;
     cursor: pointer;
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .counter-button:hover {
     color: white;
-    transform: scale(1.15);
+    transform: scale(1.08);
 }
 
 .counter-button:active {
-    transform: scale(.92);
+    transform: scale(.94);
 }
 
-.counter-icon {
-    width: calc(var(--counter-icon) * 2);
-    height: calc(var(--counter-icon) * 2);
-    min-width: calc(var(--counter-icon) * 2);
-    min-height: calc(var(--counter-icon) * 2);
-    object-fit: contain;
-    display: block;
-    flex-shrink: 0;
-}
-
-.counter-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.counter-button:focus-visible,
+.initiative:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -3px;
 }
 
 .initiative-slot {
@@ -225,11 +273,13 @@
     height: 100%;
     min-width: 0;
     min-height: 0;
-    opacity: 0.10;
+    padding: 4px;
+    opacity: 0.1;
     visibility: visible;
     cursor: pointer;
     pointer-events: auto;
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition: opacity var(--transition);
 }
 
@@ -239,16 +289,13 @@
 }
 
 .initiative-symbol {
-    width: var(--counter-number);
-    height: var(--counter-number);
-    object-fit: contain;
     display: block;
-}
-
-.initiative img {
-    width: 40%;
-    height: 40%;
+    width: clamp(20px, 15cqh, 100px);
+    height: clamp(20px, 15cqh, 100px);
+    max-width: 80%;
+    max-height: 80%;
     object-fit: contain;
+    pointer-events: none;
 }
 
 .board.players-1 {
@@ -279,11 +326,8 @@
 
 @media (min-width: 1001px) {
     .counter-value {
-        display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
+        gap: clamp(2px, 1.2cqw, 14px);
     }
 
     .counter-buttons {
@@ -315,30 +359,23 @@
     }
 
     .board.players-3 {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
         gap: 2px;
     }
 
-    .board.players-3 .player {
-        min-width: 0;
-        min-height: 0;
-        overflow: hidden;
-    }
-
     .board.players-3 .player:nth-child(1) {
-        grid-column: 1 / 3;
+        grid-column: 1;
         grid-row: 1;
     }
 
     .board.players-3 .player:nth-child(2) {
-        grid-column: 1;
-        grid-row: 2;
+        grid-column: 2;
+        grid-row: 1;
     }
 
     .board.players-3 .player:nth-child(3) {
-        grid-column: 2;
+        grid-column: 1 / 3;
         grid-row: 2;
     }
 
@@ -347,43 +384,28 @@
         grid-template-rows: repeat(2, minmax(0, 1fr));
     }
 
-    .board.players-5 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(3, minmax(0, 1fr));
-    }
-
+    .board.players-5,
     .board.players-6 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(3, minmax(0, 1fr));
     }
 
     .counter-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+        gap: clamp(2px, 1cqw, 8px);
     }
 
     .counter-icon {
-        position: static;
-        transform: none;
-        flex: 0 0 auto;
-        margin-right: 12px;
+        width: clamp(18px, 7cqh, 64px);
+        height: clamp(18px, 7cqh, 64px);
+        max-width: 25%;
+        max-height: 70%;
+        margin-right: clamp(0px, 1cqw, 12px);
     }
 
     .counter-value {
-        position: static;
-        left: auto;
-        transform: none;
-        display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
+        gap: clamp(2px, 1cqw, 6px);
         width: auto;
     }
 
@@ -393,15 +415,71 @@
         align-items: center;
         justify-content: center;
         gap: 0;
-        flex: 0 0 auto;
+        flex: 0 1 auto;
+        min-width: 0;
+        min-height: 0;
     }
 
     .counter-buttons .counter-button {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        min-height: 50px;
-        flex: 0 0 50px;
+        position: relative;
+        width: clamp(24px, 9cqh, 64px);
+        height: clamp(24px, 9cqh, 64px);
+        flex: 0 1 auto;
+        aspect-ratio: 1;
+        font-size: clamp(17.5px, 4.375cqh, 30px);
+        border-radius: 0;
+    }
+
+    .counter-buttons .counter-button-plus::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.65);
+        pointer-events: none;
+    }
+
+    .counter-buttons .counter-button-minus {
+        border-top: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .counter-life .counter-number {
+        font-size: clamp(32px, 15cqh, 100px) !important;
+        font-weight: 500 !important;
+    }
+
+    .counter-power .counter-number {
+        font-size: clamp(22px, 11cqh, 76px) !important;
+    }
+
+    .counter-icon {
+        width: clamp(24px, 9cqh, 76px);
+        height: clamp(24px, 9cqh, 76px);
+        max-width: 30%;
+        max-height: 75%;
+    }
+
+    .counter-inner {
+        gap: clamp(4px, 1.5cqw, 12px);
+    }
+
+    .counter-value {
+        gap: clamp(4px, 1.5cqw, 10px);
+    }
+
+    .counter-buttons .counter-button {
+        width: clamp(30px, 11cqh, 76px);
+        height: clamp(30px, 11cqh, 76px);
+        font-size: clamp(18px, 5.625cqh, 35px);
+    }
+
+    .initiative-symbol {
+        width: clamp(24px, 17cqh, 110px);
+        height: clamp(24px, 17cqh, 110px);
     }
 }
 
@@ -416,14 +494,13 @@
     }
 
     .toolbar-button {
-        width: 42px;
-        height: 42px;
-        font-size: 22px;
+        width: clamp(32px, 8vw, 42px);
+        height: clamp(32px, 8vw, 42px);
+        font-size: clamp(18px, 4vw, 22px);
     }
 
     .board {
-        height: calc(100% - 70px);
-        margin-top: 70px;
+        top: 72px;
     }
 
     .board.players-1 .player-content {
@@ -432,83 +509,78 @@
     }
 
     .board.players-1 .counter-life {
-    grid-area: 1 / 1 !important;
-}
+        grid-area: 1 / 1 / 2 / 2 !important;
+    }
 
-.board.players-1 .counter-power {
-    grid-area: 2 / 1 !important;
-}
+    .board.players-1 .counter-power {
+        grid-area: 2 / 1 / 3 / 2 !important;
+    }
 
-.board.players-1 .initiative {
-    grid-area: 3 / 1 !important;
-}
+    .board.players-1 .initiative {
+        grid-area: 3 / 1 / 4 / 2 !important;
+    }
 
     .counter {
-        padding: 6px;
+        padding: 4px;
     }
 
     .counter-inner {
-        gap: 6px;
+        flex-direction: row;
+        gap: clamp(2px, 1.25cqw, 10px);
     }
 
-    .counter-number {
-        font-size: clamp(32px, 10vw, 58px);
-        min-width: 0;
-    }
-
-    .counter-button {
-        width: 77px;
-        height: 77px;
-        min-width: 77px;
-        min-height: 77px;
-        flex: 0 0 77px;
-        padding: 0;
-        font-size: 22px;
+    .counter-icon {
+        width: clamp(22.5px, 8.75cqh, 80px);
+        height: clamp(22.5px, 8.75cqh, 80px);
+        max-width: 31.25%;
+        max-height: 87.5%;
+        margin-right: clamp(0px, 1.25cqw, 15px);
     }
 
     .counter-value {
-        gap: 6px;
+        flex-direction: row;
+        gap: clamp(2px, 1.25cqw, 8px);
+        width: auto;
+    }
+
+    .counter-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        flex: 0 1 auto;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .counter-buttons .counter-button {
+        width: clamp(24px, 9cqh, 56px);
+        height: clamp(24px, 9cqh, 56px);
+        flex: 0 1 auto;
+        aspect-ratio: 1;
+        font-size: clamp(17.5px, 4.375cqh, 27.5px);
+    }
+
+    .counter-number {
+        font-size: clamp(22.5px, 12.5cqh, 72.5px);
+    }
+
+    .counter-life .counter-number {
+        font-size: clamp(35px, 18.75cqh, 125px) !important;
+        font-weight: 500 !important;
+    }
+
+    .counter-power .counter-number {
+        font-size: clamp(22.5px, 11.25cqh, 85px) !important;
     }
 
     .initiative {
-        top: 8px;
-        right: 8px;
+        padding: 4px;
     }
 
-    .initiative img {
-        width: 60%;
-        height: 60%;
-        object-fit: contain;
-    }
-
-    #board {
-        top: 72px;
-    }
-}
-
-.counter-life .counter-number {
-    font-size: clamp(80px, 12vw, 100px) !important;
-    font-weight: 400;
-}
-
-#board {
-    position: fixed;
-    top: 84px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    min-height: 0;
-}
-
-@media (max-width: 768px) {
-    #board {
-        top: 72px;
+    .initiative-symbol {
+        width: clamp(25px, 18.75cqh, 100px);
+        height: clamp(25px, 18.75cqh, 100px);
     }
 }

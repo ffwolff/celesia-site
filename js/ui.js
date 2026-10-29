@@ -1,3 +1,4 @@
+
 const RESOURCE_CONFIG = {
     life: {
         name: "Vida",
@@ -15,37 +16,37 @@ const RESOURCE_CONFIG = {
     }
 };
 
-
 function getOrientation(index, count) {
     const isTouchDevice = window.matchMedia(
         "(hover: none) and (pointer: coarse)"
     ).matches;
 
-    if (!isTouchDevice) return 0;
+    if (!isTouchDevice) {
+        return 0;
+    }
 
     const orientations = {
         1: [0],
         2: [180, 0],
-        3: [0, 90, -90],
+        3: [90, -90, 0],
         4: [90, -90, 90, -90]
     };
 
     return orientations[count]?.[index] ?? 0;
 }
 
-
 function applyPlayerOrientation(panel, orientation) {
-
     const content = panel.querySelector(".player-content");
 
     if (!content) {
         return;
     }
 
-    const width = panel.clientWidth;
-    const height = panel.clientHeight;
+    const padding = 4;
+    const width = panel.clientWidth - padding * 2;
+    const height = panel.clientHeight - padding * 2;
 
-    if (!width || !height) {
+    if (width <= 0 || height <= 0) {
         return;
     }
 
@@ -55,24 +56,18 @@ function applyPlayerOrientation(panel, orientation) {
     content.style.transformOrigin = "center center";
 
     if (orientation === 90 || orientation === -90) {
-
         content.style.width = `${height}px`;
         content.style.height = `${width}px`;
-
     } else {
-
-        content.style.width = "100%";
-        content.style.height = "100%";
-
+        content.style.width = `${width}px`;
+        content.style.height = `${height}px`;
     }
 
     content.style.transform =
         `translate(-50%, -50%) rotate(${orientation}deg)`;
 }
 
-
 function applyBoardOrientations() {
-
     const board = document.getElementById("board");
 
     if (!board) {
@@ -82,17 +77,12 @@ function applyBoardOrientations() {
     const panels = board.querySelectorAll(".player");
 
     panels.forEach((panel, index) => {
-
         const orientation = getOrientation(
             index,
             panels.length
         );
 
-        applyPlayerOrientation(
-            panel,
-            orientation
-        );
-
+        applyPlayerOrientation(panel, orientation);
     });
 }
 
@@ -110,11 +100,11 @@ function updatePlayerToolbar(count) {
 }
 
 function createResourceButton(player, resource, amount) {
-
     const button = document.createElement("button");
 
     button.type = "button";
     button.className = "counter-button";
+
     button.classList.add(
         amount > 0 ? "counter-button-plus" : "counter-button-minus"
     );
@@ -127,22 +117,18 @@ function createResourceButton(player, resource, amount) {
     );
 
     button.addEventListener("click", () => {
-
         updateResource(
             player.id,
             resource,
             amount
         );
-
     });
 
     return button;
 }
 
 function createCounter(player, resource) {
-
     const config = RESOURCE_CONFIG[resource];
-
     const counter = document.createElement("div");
 
     counter.className = `counter counter-${resource}`;
@@ -155,14 +141,12 @@ function createCounter(player, resource) {
         counter.style.gridArea = "2 / 1";
     }
 
-        
     const icon = document.createElement("img");
 
     icon.className = "counter-icon";
     icon.src = config.icon;
     icon.alt = "";
     icon.setAttribute("aria-hidden", "true");
-
 
     const valueContainer = document.createElement("div");
 
@@ -178,7 +162,6 @@ function createCounter(player, resource) {
 
     number.className = "counter-number";
     number.textContent = player[resource];
-
     number.setAttribute("aria-live", "polite");
 
     number.setAttribute(
@@ -193,6 +176,7 @@ function createCounter(player, resource) {
     );
 
     const buttonsContainer = document.createElement("div");
+
     buttonsContainer.className = "counter-buttons";
 
     buttonsContainer.append(
@@ -219,10 +203,6 @@ function createCounter(player, resource) {
     return counter;
 }
 
-
-
-
-
 function createInitiativeIndicator(player) {
     const indicator = document.createElement("div");
 
@@ -241,6 +221,7 @@ function createInitiativeIndicator(player) {
     symbol.className = "initiative-symbol";
     symbol.src = "assets/icons/celesia_cristal.png";
     symbol.alt = "";
+    symbol.setAttribute("aria-hidden", "true");
 
     indicator.appendChild(symbol);
 
@@ -260,27 +241,19 @@ function createInitiativeIndicator(player) {
     return indicator;
 }
 
-
-
 function applyPlayerBackground(element, background) {
-
     if (!background || !background.value) {
-
         element.style.background = "#25234C";
-
         return;
     }
 
     if (background.type === "gradient") {
-
         element.style.background = background.value;
-
         return;
     }
 
     element.style.backgroundColor = background.value;
 }
-
 
 function createPlayer(player) {
     const panel = document.createElement("article");
@@ -291,12 +264,14 @@ function createPlayer(player) {
     applyPlayerBackground(panel, player.background);
 
     const content = document.createElement("div");
+
     content.className = "player-content";
 
     const life = createCounter(player, "life");
     const power = createCounter(player, "power");
 
     const initiative = createInitiativeIndicator(player);
+
     initiative.style.gridArea = "2 / 2";
 
     content.append(
@@ -310,13 +285,10 @@ function createPlayer(player) {
     return panel;
 }
 
-
 function renderBoard(players) {
-
     const board = document.getElementById("board");
 
     if (!board) {
-
         console.error(
             'Elemento com id "board" não encontrado.'
         );
@@ -325,15 +297,11 @@ function renderBoard(players) {
     }
 
     board.innerHTML = "";
-
     board.className = `board players-${players.length}`;
 
     players.forEach((player) => {
-
         const panel = createPlayer(player);
-
         board.appendChild(panel);
-
     });
 
     updatePlayerToolbar(players.length);
@@ -344,9 +312,7 @@ function renderBoard(players) {
 }
 
 window.addEventListener("resize", () => {
-
     if (typeof players !== "undefined") {
         renderBoard(players);
     }
-
 });
