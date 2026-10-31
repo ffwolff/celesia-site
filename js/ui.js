@@ -149,7 +149,6 @@ function createCounter(player, resource) {
     icon.setAttribute("aria-hidden", "true");
 
     const valueContainer = document.createElement("div");
-
     valueContainer.className = "counter-value";
 
     const decreaseButton = createResourceButton(
@@ -159,7 +158,6 @@ function createCounter(player, resource) {
     );
 
     const number = document.createElement("span");
-
     number.className = "counter-number";
     number.textContent = player[resource];
     number.setAttribute("aria-live", "polite");
@@ -175,28 +173,31 @@ function createCounter(player, resource) {
         1
     );
 
-    const buttonsContainer = document.createElement("div");
+    const displayContainer = document.createElement("div");
+    displayContainer.className = "counter-display";
 
+    displayContainer.append(
+        icon,
+        number
+    );
+
+    const buttonsContainer = document.createElement("div");
     buttonsContainer.className = "counter-buttons";
 
     buttonsContainer.append(
-        increaseButton,
-        decreaseButton
+        decreaseButton,
+        increaseButton
     );
 
     valueContainer.append(
-        number,
+        displayContainer,
         buttonsContainer
     );
 
     const inner = document.createElement("div");
-
     inner.className = "counter-inner";
 
-    inner.append(
-        icon,
-        valueContainer
-    );
+    inner.appendChild(valueContainer);
 
     counter.appendChild(inner);
 

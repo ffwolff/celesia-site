@@ -183,11 +183,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: clamp(2px, 1.2cqw, 14px);
+    gap: 8px;
     min-width: 0;
     min-height: 0;
     max-width: 100%;
     max-height: 100%;
+}
+
+.counter-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    order: 2;
 }
 
 .counter-buttons {
@@ -324,26 +333,23 @@
 }
 
 @media (min-width: 1001px) {
-    .counter-value {
+    .counter-inner {
         flex-direction: row;
-        gap: clamp(2px, 1.2cqw, 14px);
     }
 
-    .counter-buttons {
-        display: contents;
+    .counter-value {
+        width: 100%;
+        height: 100%;
     }
 
     .counter-button-minus {
         order: 1;
     }
 
-    .counter-number {
-        order: 2;
-    }
-
     .counter-button-plus {
         order: 3;
     }
+
     .board.players-4 .player .counter-life .counter-number {
         font-size: clamp(42px, 19.5cqh, 150px) !important;
     }
@@ -369,7 +375,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 769px) and (max-width: 1000px) {
     .board.players-1 {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: minmax(0, 1fr);
@@ -380,8 +386,7 @@
         grid-template-rows: repeat(2, minmax(0, 1fr));
     }
 
-    .board.players-2 .player .counter-icon,
-    .board.players-2 .player .initiative-symbol {
+    .board.players-2 .player .counter-icon {
         width: clamp(30px, 11cqh, 100px);
         height: clamp(30px, 11cqh, 100px);
     }
@@ -395,8 +400,6 @@
     }
 
     .board.players-2 .player .counter-buttons .counter-button {
-        width: clamp(30px, 11cqh, 65px);
-        height: clamp(30px, 11cqh, 65px);
         font-size: clamp(35px, 8.75cqh, 60px);
     }
 
@@ -421,8 +424,7 @@
         grid-row: 2;
     }
 
-    .board.players-3 .player:nth-child(3) .counter-icon,
-    .board.players-3 .player:nth-child(3) .initiative-symbol {
+    .board.players-3 .player:nth-child(3) .counter-icon {
         width: clamp(30px, 11cqh, 100px);
         height: clamp(30px, 11cqh, 100px);
     }
@@ -436,8 +438,6 @@
     }
 
     .board.players-3 .player:nth-child(3) .counter-buttons .counter-button {
-        width: clamp(30px, 11cqh, 65px);
-        height: clamp(30px, 11cqh, 65px);
         font-size: clamp(35px, 8.75cqh, 60px);
     }
 
@@ -453,60 +453,50 @@
         grid-template-rows: repeat(2, minmax(0, 1fr));
     }
 
-    .board.players-5,
-    .board.players-6 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(3, minmax(0, 1fr));
-    }
-
     .counter-inner {
         flex-direction: row;
-        gap: clamp(2px, 1cqw, 8px);
-    }
-
-    .counter-icon {
-        width: clamp(18px, 7cqh, 64px);
-        height: clamp(18px, 7cqh, 64px);
-        max-width: 25%;
-        max-height: 70%;
-        margin-right: clamp(0px, 1cqw, 12px);
+        justify-content: center;
+        align-items: center;
+        gap: 0;
     }
 
     .counter-value {
+        display: flex;
         flex-direction: row;
-        gap: clamp(2px, 1cqw, 6px);
-        width: auto;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .counter-display {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        order: 2;
+    }
+
+    .counter-display .counter-icon {
+        margin: 0;
+        max-width: 30%;
+        max-height: 75%;
     }
 
     .counter-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0;
-        flex: 0 1 auto;
-        min-width: 0;
-        min-height: 0;
+        display: contents;
     }
 
-    .counter-buttons .counter-button {
-        position: relative;
-        width: clamp(24px, 9cqh, 64px);
-        height: clamp(24px, 9cqh, 64px);
-        flex: 0 1 auto;
-        aspect-ratio: 1;
-        font-size: clamp(35px, 8.75cqh, 60px);
-        border-radius: 0;
+    .counter-button-minus {
+        order: 1;
     }
 
-    
-
-    .counter-buttons .counter-button-minus {
-        border-top: none;
+    .counter-button-plus {
+        order: 3;
     }
-}
 
-@media (min-width: 769px) and (max-width: 1000px) {
     .counter-life .counter-number {
         font-size: clamp(32px, 15cqh, 100px) !important;
         font-weight: 500 !important;
@@ -519,22 +509,6 @@
     .counter-icon {
         width: clamp(24px, 9cqh, 76px);
         height: clamp(24px, 9cqh, 76px);
-        max-width: 30%;
-        max-height: 75%;
-    }
-
-    .counter-inner {
-        gap: clamp(4px, 1.5cqw, 12px);
-    }
-
-    .counter-value {
-        gap: clamp(4px, 1.5cqw, 10px);
-    }
-
-    .counter-buttons .counter-button {
-        width: clamp(30px, 11cqh, 76px);
-        height: clamp(30px, 11cqh, 76px);
-        font-size: clamp(35px, 8.75cqh, 60px);
     }
 
     .initiative-symbol {
@@ -563,6 +537,48 @@
         top: 72px;
     }
 
+    .board.players-1 {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr);
+    }
+
+    .board.players-2 {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .board.players-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 2px;
+    }
+
+    .board.players-3 .player:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .board.players-3 .player:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .board.players-3 .player:nth-child(3) {
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+
+    .board.players-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .board.players-5,
+    .board.players-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+    }
+
     .board.players-1 .player-content {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -585,7 +601,94 @@
     }
 
     .counter-inner {
+        position: relative;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .counter-value {
+        position: static;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .counter-display {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: max-content;
+        max-width: calc(100% - 80px);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .counter-display .counter-icon {
+        position: static;
+        transform: none;
+        margin: 0;
+        flex: 0 0 auto;
+        max-width: none;
+        max-height: 75%;
+    }
+
+    .counter-display .counter-number {
+        flex: 0 0 auto;
+        max-width: none;
+        white-space: nowrap;
+    }
+
+    .counter-buttons {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        gap: 0;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    .counter-buttons .counter-button {
+        position: relative;
+        width: 40px;
+        min-width: 40px;
+        max-width: 40px;
+        height: 100%;
+        min-height: 100%;
+        flex: 0 0 40px;
+        aspect-ratio: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 0;
+        font-size: clamp(35px, 8.75cqh, 55px);
+        pointer-events: auto;
+    }
+
+    .counter-buttons .counter-button-minus {
+        order: 1;
+    }
+
+    .counter-buttons .counter-button-plus {
+        order: 2;
+    }
+
+    .counter-inner {
         gap: clamp(2px, 1.25cqw, 10px);
     }
 
@@ -594,32 +697,11 @@
         height: clamp(22.5px, 8.75cqh, 80px);
         max-width: 31.25%;
         max-height: 87.5%;
-        margin-right: clamp(0px, 1.25cqw, 15px);
+        margin-right: 0;
     }
 
     .counter-value {
-        flex-direction: row;
         gap: clamp(2px, 1.25cqw, 8px);
-        width: auto;
-    }
-
-    .counter-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0;
-        flex: 0 1 auto;
-        min-width: 0;
-        min-height: 0;
-    }
-
-    .counter-buttons .counter-button {
-        width: clamp(24px, 9cqh, 56px);
-        height: clamp(24px, 9cqh, 56px);
-        flex: 0 1 auto;
-        aspect-ratio: 1;
-        font-size: clamp(35px, 8.75cqh, 55px);
     }
 
     .counter-number {
