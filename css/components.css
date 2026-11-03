@@ -77,7 +77,7 @@
     cursor: not-allowed;
 }
 
-#next-initiative {
+#reset-canvas {
     background: var(--toolbar-button-background);
 }
 
@@ -146,6 +146,38 @@
     min-height: 0;
     padding: clamp(2px, 1.2cqw, 12px);
     overflow: hidden;
+}
+
+.counter-power {
+    padding: 0;
+}
+
+.counter-power .power-icon {
+    display: block;
+    width: 50%;
+    height: 50%;
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+    flex: 0 1 auto;
+    min-width: 0;
+    min-height: 0;
+
+    opacity: 0.6;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.15s ease;
+}
+
+.counter-power .power-icon.is-pressed {
+    opacity: 1;
+}
+
+.counter-power .power-icon.is-pressed,
+.counter-power .power-icon:active,
+.counter-power .power-icon:focus-visible {
+    opacity: 1;
 }
 
 .counter-life,
@@ -288,7 +320,8 @@
     pointer-events: auto;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
-    transition: opacity var(--transition);
+    transition: opacity 0.15s ease;
+    padding: 0;
 }
 
 .initiative.active {
@@ -298,10 +331,10 @@
 
 .initiative-symbol {
     display: block;
-    width: clamp(20px, 15cqh, 100px);
-    height: clamp(20px, 15cqh, 100px);
-    max-width: 80%;
-    max-height: 80%;
+    width: 70%;
+    height: 70%;
+    max-width: 70%;
+    max-height: 70%;
     object-fit: contain;
     pointer-events: none;
 }
@@ -358,11 +391,6 @@
         font-size: clamp(27px, 13.5cqh, 102px) !important;
     }
 
-    .board.players-4 .player .counter-icon {
-        width: clamp(30px, 12cqh, 132px);
-        height: clamp(30px, 12cqh, 132px);
-    }
-
     .board.players-4 .player .counter-button {
         width: clamp(42px, 16.5cqh, 150px);
         height: clamp(42px, 16.5cqh, 150px);
@@ -370,8 +398,8 @@
     }
 
     .board.players-4 .player .initiative-symbol {
-        width: clamp(30px, 22.5cqh, 150px);
-        height: clamp(30px, 22.5cqh, 150px);
+        width: 80%;
+        height: 80%;
     }
 }
 
@@ -443,8 +471,8 @@
 
     .board.players-2 .player .initiative-symbol,
     .board.players-3 .player:nth-child(3) .initiative-symbol {
-        width: clamp(30px, 18.75cqh, 100px);
-        height: clamp(30px, 18.75cqh, 100px);
+        width: 80%;
+        height: 80%;
         flex-shrink: 0;
     }
 
@@ -512,8 +540,8 @@
     }
 
     .initiative-symbol {
-        width: clamp(24px, 17cqh, 110px);
-        height: clamp(24px, 17cqh, 110px);
+        width: 80%;
+        height: 80%;
     }
 }
 
@@ -722,7 +750,7 @@
     }
 
     .initiative-symbol {
-        width: clamp(25px, 18.75cqh, 100px);
-        height: clamp(25px, 18.75cqh, 100px);
+        width: 80%;
+        height: 80%;
     }
 }

@@ -4,15 +4,13 @@ class Player {
 
         this.id = id;
 
-        // Recursos
         this.life = 30;
         this.power = 0;
         this.channeling = 0;
 
-        // Apenas um jogador pode possuir a iniciativa
         this.initiative = false;
+        this.powerPressed = false;
 
-        // Cor / Gradiente do painel
         this.background = background ?? {
             type: "solid",
             value: "#25234C"

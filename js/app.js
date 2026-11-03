@@ -1,5 +1,5 @@
 const MIN_PLAYERS = 1;
-const MAX_PLAYERS = 6;
+const MAX_PLAYERS = 4;
 
 const INITIAL_PLAYERS = 2;
 
@@ -54,13 +54,13 @@ function setupToolbar() {
 
     const removeButton = document.getElementById("remove-player");
 
-    const initiativeButton = document.getElementById("next-initiative");
+    const resetCanvasButton = document.getElementById("reset-canvas");
 
     addButton.addEventListener("click", addPlayer);
 
     removeButton.addEventListener("click", removePlayer);
 
-    initiativeButton.addEventListener("click", nextInitiative);
+    resetCanvasButton.addEventListener("click", resetCanvas);
 
 }
 
@@ -149,6 +149,10 @@ function nextInitiative() {
     });
 
     renderApp();
+}
+
+function resetCanvas() {
+    initializeApp();
 }
 
 

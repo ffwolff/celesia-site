@@ -139,6 +139,39 @@ function createCounter(player, resource) {
 
     if (resource === "power") {
         counter.style.gridArea = "2 / 1";
+
+        const icon = document.createElement("img");
+
+        icon.className = "counter-icon power-icon";
+        icon.src = config.icon;
+        icon.alt = "Poder";
+        icon.setAttribute("role", "button");
+        icon.setAttribute("tabindex", "0");
+        icon.setAttribute("aria-label", "Alternar Poder");
+
+        if (player.powerPressed === undefined) {
+            player.powerPressed = false;
+        }
+
+        icon.classList.toggle("is-pressed", player.powerPressed);
+
+        const togglePressed = () => {
+            player.powerPressed = !player.powerPressed;
+            icon.classList.toggle("is-pressed", player.powerPressed);
+        };
+
+        icon.addEventListener("click", togglePressed);
+
+        icon.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                togglePressed();
+            }
+        });
+
+        counter.appendChild(icon);
+
+        return counter;
     }
 
     const icon = document.createElement("img");
