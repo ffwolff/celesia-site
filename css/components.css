@@ -1,4 +1,19 @@
 
+@font-face {
+    font-family: "Clements";
+    src: url("../assets/fonts/Clements Morgle Serif.otf");
+}
+
+@font-face {
+    font-family: "FiraLight";
+    src: url("../assets/fonts/FiraSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "Creato";
+    src: url("../assets/fonts/CreatoDisplay-Regular.otf");
+}
+
 * {
     box-sizing: border-box;
 }
@@ -30,6 +45,11 @@
 
 .toolbar-left {
     margin-right: auto;
+}
+
+.toolbar-left h1 {
+    margin-right: auto;
+    font-family: "Clements";
 }
 
 .toolbar-center {

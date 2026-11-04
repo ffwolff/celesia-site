@@ -1,4 +1,19 @@
 
+@font-face {
+    font-family: "Clements";
+    src: url("../assets/fonts/Clements Morgle Serif.otf");
+}
+
+@font-face {
+    font-family: "FiraLight";
+    src: url("../assets/fonts/FiraSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "Creato";
+    src: url("../assets/fonts/CreatoDisplay-Regular.otf");
+}
+
 *,
 *::before,
 *::after{
