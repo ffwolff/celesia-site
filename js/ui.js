@@ -333,7 +333,11 @@ function renderBoard(players) {
     board.innerHTML = "";
     board.className = `board players-${players.length}`;
 
-    players.forEach((player) => {
+    const playerOrder = players.length === 4
+        ? [players[0], players[1], players[3], players[2]]
+        : players;
+
+    playerOrder.forEach((player) => {
         const panel = createPlayer(player);
         board.appendChild(panel);
     });
