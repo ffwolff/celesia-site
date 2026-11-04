@@ -114,13 +114,22 @@ select{
 
 }
 
+.counter-power {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 16px;
+    height: 100%;
+}
+
 .power-control,
 .initiative {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 4px;
+    padding-bottom: 16px;
 }
 
 .counter-label,
