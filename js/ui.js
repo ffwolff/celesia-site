@@ -140,14 +140,21 @@ function createCounter(player, resource) {
     if (resource === "power") {
         counter.style.gridArea = "2 / 1";
 
+        const control = document.createElement("div");
+        control.className = "power-control";
+        control.setAttribute("role", "button");
+        control.setAttribute("tabindex", "0");
+        control.setAttribute("aria-label", "Alternar Habilidade");
+
         const icon = document.createElement("img");
 
         icon.className = "counter-icon power-icon";
         icon.src = config.icon;
-        icon.alt = "Poder";
-        icon.setAttribute("role", "button");
-        icon.setAttribute("tabindex", "0");
-        icon.setAttribute("aria-label", "Alternar Poder");
+        icon.alt = "";
+
+        const label = document.createElement("span");
+        label.className = "counter-label";
+        label.textContent = "Habilidade";
 
         if (player.powerPressed === undefined) {
             player.powerPressed = false;
@@ -160,16 +167,17 @@ function createCounter(player, resource) {
             icon.classList.toggle("is-pressed", player.powerPressed);
         };
 
-        icon.addEventListener("click", togglePressed);
+        control.addEventListener("click", togglePressed);
 
-        icon.addEventListener("keydown", (event) => {
+        control.addEventListener("keydown", (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 togglePressed();
             }
         });
 
-        counter.appendChild(icon);
+        control.append(icon, label);
+        counter.appendChild(control);
 
         return counter;
     }
@@ -257,7 +265,14 @@ function createInitiativeIndicator(player) {
     symbol.alt = "";
     symbol.setAttribute("aria-hidden", "true");
 
-    indicator.appendChild(symbol);
+    const label = document.createElement("span");
+    label.className = "initiative-label";
+    label.textContent = "Iniciativa";
+
+    indicator.append(
+        symbol,
+        label
+    );
 
     function passInitiative() {
         nextInitiative();
