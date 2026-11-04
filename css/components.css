@@ -404,6 +404,7 @@
 }
 
 @media (min-width: 1001px) {
+
     .counter-inner {
         flex-direction: row;
     }
@@ -584,6 +585,11 @@
 }
 
 @media (max-width: 768px) {
+
+    .toolbar-left h1 {
+        font-size: 18px;
+    }
+
     .toolbar {
         height: 60px;
         padding: 0 10px;
@@ -794,5 +800,11 @@
     .initiative-symbol {
         width: 80%;
         height: 80%;
+    }
+}
+
+@media (max-width: 310px) {
+    .toolbar-left h1 {
+        display: none;
     }
 }
