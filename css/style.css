@@ -889,6 +889,7 @@ p {
     font-size: 2rem;
     font-weight: normal;
     color: var(--light-blue);
+    text-align: center;
 }
 
 .camarada-text-container {
