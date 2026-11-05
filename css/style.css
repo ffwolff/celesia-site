@@ -873,6 +873,24 @@ p {
     width: 100%;
     gap: 40px;
 }
+
+#camarada {
+    align-items: center;
+}
+
+#camarada a {
+    text-align: center;
+    color: #5483B6;
+}
+
+#camarada h3 {
+    margin: 0;
+    font-family: "Clements";
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--light-blue);
+}
+
 .camarada-text-container {
     display: flex;
     flex-direction: column;
@@ -901,7 +919,7 @@ p {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    gap: 12px;
+    gap: 24px;
 }
 
 .camarada-content-container-wrap img {
