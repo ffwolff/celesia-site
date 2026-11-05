@@ -369,12 +369,11 @@
 
 .initiative-symbol {
     display: block;
-    width: 70%;
-    height: 70%;
-    max-width: 70%;
-    max-height: 70%;
+    width: 50%;
+    height: 50%;
     object-fit: contain;
     pointer-events: none;
+    padding-bottom: 12px;
 }
 
 .board.players-1 {
@@ -437,8 +436,8 @@
     }
 
     .board.players-4 .player .initiative-symbol {
-        width: 80%;
-        height: 80%;
+        width: 60%;
+        height: 60%;
     }
 }
 
@@ -510,8 +509,8 @@
 
     .board.players-2 .player .initiative-symbol,
     .board.players-3 .player:nth-child(3) .initiative-symbol {
-        width: 80%;
-        height: 80%;
+        width: 50%;
+        height: 50%;
         flex-shrink: 0;
     }
 
@@ -579,8 +578,8 @@
     }
 
     .initiative-symbol {
-        width: 80%;
-        height: 80%;
+        width: 60%;
+        height: 60%;
     }
 }
 
@@ -798,6 +797,18 @@
     }
 
     .initiative-symbol {
+        width: 60%;
+        height: 60%;
+    }
+
+    .board.players-2 .player .initiative-symbol,
+    .board.players-3 .player:nth-child(3) .initiative-symbol {
+        width: 70%;
+        height: 70%;
+        flex-shrink: 0;
+    }
+
+    .board.players-4 .player .initiative-symbol {
         width: 80%;
         height: 80%;
     }

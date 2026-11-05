@@ -866,6 +866,53 @@ p {
     transform: translateY(-2px); 
 }
 
+.camarada-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+.camarada-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    width: 100%;
+}
+
+.camarada-image-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 24px;
+}
+
+.camarada-image-container img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.camarada-content-container-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+}
+
+.camarada-content-container-wrap img {
+    max-width: 50px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
 footer {
 
     padding: 0px 60px 120px 120px;    
@@ -1297,6 +1344,10 @@ footer a:hover {
         font-size: 24px;
     }
 
+    .camarada-content-container {
+        flex-direction: column;
+    }
+    
     footer {
         
         padding: 40px 24px;
